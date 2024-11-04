@@ -13,6 +13,9 @@
         android:theme="@style/Theme.PawsitiveVibes"
         tools:targetApi="31">
         <activity
+            android:name=".AddProductActivity"
+            android:exported="false" />
+        <activity
             android:name=".SelectRoleActivity"
             android:exported="false" />
         <activity
