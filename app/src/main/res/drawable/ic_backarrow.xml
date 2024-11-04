@@ -1,0 +1,16 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="45dp"
+    android:height="45dp"
+    android:viewportWidth="34"
+    android:viewportHeight="34">
+
+    <!-- Transparent circle as background -->
+    <path
+        android:pathData="M12,2a10,10 0,1 1,10 10a10,10 0,0 1,-10 -10z"
+        android:fillColor="#00000000"/> <!-- Set the color to transparent -->
+
+    <!-- Your original icon -->
+    <path
+        android:pathData="M2,12c0,5.52 4.48,10 10,10s10,-4.48 10,-10c0,-5.52 -4.48,-10 -10,-10C6.48,2 2,6.48 2,12zM12,11l4,0v2l-4,0l0,3l-4,-4l4,-4L12,11z"
+        android:fillColor="@android:color/white"/> <!-- Keep your original icon's color -->
+</vector>

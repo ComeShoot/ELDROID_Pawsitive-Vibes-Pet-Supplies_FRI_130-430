@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="Orig_BG">#164863</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="farmnookcolor">#F4F1EB </color>
+    <color name="btnpmain">#1A4D2E </color>
+    <color name="secondarycolor">#0A6847 </color>
+    <color name="btn2">#1A4D2E </color>
+    <color name="ac">#0FAB32 </color>
+    <color name="blue">#08298C</color>
+    <color name="grey">#6A9B7F</color>
+    <color name="lighblue">#1EA7F4</color>
+    <color name="lightGreen">#E8DFCA</color>
+    <color name="darkGreen">#1A4D2E</color>
+    <color name="sender_background_color">#D0F0C0</color>
+    <color name="receiver_background_color">#C8E6C9</color>
+    <color name="greentxt">#4F6F52</color>#
+    <color name="backgroundColor">#F4F1EB</color>
+    <color name="pending">#FFBF00</color>
+</resources>
