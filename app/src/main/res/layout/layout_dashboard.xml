@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginHorizontal="10dp"
+    android:layout_marginVertical="5dp"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="8dp"
+    android:clickable="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="225dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/bg_greencard"
+            tools:ignore="MissingConstraints">
+
+            <LinearLayout
+                android:id="@+id/linearLayout8"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="20dp"
+                    app:cardCornerRadius="50dp">
+
+                    <ImageView
+                        android:id="@+id/dashboard_user_image"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ugie" />
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/dashboard_user_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="1dp"
+                    android:fontFamily="@font/dmsans_reg"
+                    android:text="James Reid"
+                    android:textColor="#757575"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="155dp"
+                    android:background="@android:color/transparent"
+                    android:drawableStart="@drawable/ic_more"
+                    android:paddingStart="35dp"
+                    android:paddingEnd="5dp" />
+
+            </LinearLayout>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView3"
+                android:layout_width="160dp"
+                android:layout_height="140dp"
+                android:layout_marginLeft="220dp"
+                android:layout_marginTop="50dp"
+                app:cardCornerRadius="10dp">
+
+                <ImageView
+                    android:id="@+id/dashboard_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/corn" />
+            </androidx.cardview.widget.CardView>
+
+
+            <TextView
+                android:id="@+id/dashboard_post_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="80dp"
+                android:fontFamily="@font/dmsans_reg"
+                android:text="Brown Flax Seeds"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
+
+
+            <TextView
+                android:id="@+id/linkTextView2"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/dashboard_post_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:autoLink="web"
+                android:linksClickable="true"
+                android:textColor="@color/blue"
+                android:textSize="12sp" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="125dp"
+                android:layout_marginBottom="3dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/commentbtn2"
+                    android:layout_width="40dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:background="@android:color/transparent"
+                    android:drawableLeft="@drawable/ic_message" />
+
+
+            </LinearLayout>
+        </RelativeLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

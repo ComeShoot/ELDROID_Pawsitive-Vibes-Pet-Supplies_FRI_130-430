@@ -66,6 +66,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:background="@drawable/bg_semi_cardview"
             android:orientation="vertical"
             android:padding="16dp">
 
@@ -88,7 +90,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/ic_uploadimage" />
+                    android:src="@drawable/ic_image" />
 
             </LinearLayout>
 
@@ -117,7 +119,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="5dp"
-                    android:textColor="#1A4D2E"
+                    android:textColor="#164863"
                     android:textStyle="bold"
                     android:fontFamily="@font/poppins_reg"
                     android:text="Upload Image"
@@ -193,7 +195,7 @@
                         android:layout_marginLeft="30dp"
                         android:fontFamily="@font/poppins_reg"
                         android:text="Description"
-                        android:textColor="#1A4D2E"
+                        android:textColor="#164863"
                         android:textSize="15dp"
                         android:textStyle="bold" />
 
@@ -232,7 +234,7 @@
                         android:layout_marginLeft="30dp"
                         android:fontFamily="@font/poppins_reg"
                         android:text="Price"
-                        android:textColor="#1A4D2E"
+                        android:textColor="#164863"
                         android:textSize="15dp"
                         android:textStyle="bold" />
 
@@ -250,8 +252,50 @@
                         android:inputType="numberDecimal"
                         android:textSize="15sp"
                         android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:layout_marginLeft="30dp"
+                        android:fontFamily="@font/poppins_reg"
+                        android:text="Quantity"
+                        android:textColor="#164863"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center">
 
+                        <!-- Decrement Button -->
+                        <Button
+                            android:id="@+id/button_decrement"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="−"
+                            android:textSize="24sp"
+                            android:textColor="@android:color/black"/>
 
+                        <!-- Quantity TextView -->
+                        <TextView
+                            android:id="@+id/text_quantity"
+                            android:layout_width="64dp"
+                            android:layout_height="48dp"
+                            android:gravity="center"
+                            android:text="1"
+                            android:textSize="20sp" />
+
+                        <!-- Increment Button -->
+                        <Button
+                            android:id="@+id/button_increment"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="+"
+                            android:textSize="24sp"
+                            android:textColor="@android:color/black"/>
+
+                    </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -267,7 +311,7 @@
 
                         <Button
                             android:id="@+id/addBtn"
-                            android:layout_width="350dp"
+                            android:layout_width="250dp"
                             android:layout_height="50dp"
                             android:layout_weight="0"
                             android:background="@drawable/rounded_edittext_background"
