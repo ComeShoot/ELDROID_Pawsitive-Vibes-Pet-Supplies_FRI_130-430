@@ -38,10 +38,12 @@ android {
 dependencies {
     implementation("androidx.cardview:cardview:1.0.0")
     implementation(libs.androidx.core.ktx)
+    implementation("androidx.gridlayout:gridlayout:1.0.0")
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.gridlayout)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
