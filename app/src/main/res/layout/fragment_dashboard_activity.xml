@@ -58,11 +58,11 @@
                     android:backgroundTint="#FFFFFF"
                     android:fontFamily="@font/poppins_reg"
                     android:gravity="center"
-                    android:drawableLeft="@drawable/ic_all"
+                    android:drawableLeft="@drawable/ic_allconts"
                     android:paddingHorizontal="20dp"
                     android:text="All"
                     android:textAllCaps="false"
-                    android:textColor="#1A4D2E"
+                    android:textColor="#164863"
                     android:textStyle="bold" />
 
                 <Button
@@ -71,13 +71,13 @@
                     android:layout_height="match_parent"
                     android:layout_margin="5dp"
                     android:backgroundTint="#FFFFFF"
-                    android:drawableLeft="@drawable/ic_plant"
+                    android:drawableLeft="@drawable/ic_dogs"
                     android:fontFamily="@font/poppins_reg"
                     android:gravity="center"
                     android:paddingHorizontal="20dp"
-                    android:text="Crops"
+                    android:text="Dogs"
                     android:textAllCaps="false"
-                    android:textColor="#1A4D2E"
+                    android:textColor="#164863"
                     android:textStyle="bold" />
 
                 <Button
@@ -86,13 +86,13 @@
                     android:layout_height="match_parent"
                     android:layout_margin="5dp"
                     android:backgroundTint="#FFFFFF"
-                    android:drawableLeft="@drawable/ic_farm"
+                    android:drawableLeft="@drawable/ic_cats"
                     android:fontFamily="@font/poppins_reg"
                     android:gravity="center"
                     android:paddingHorizontal="20dp"
-                    android:text="Livestock"
+                    android:text="Cats"
                     android:textAllCaps="false"
-                    android:textColor="#1A4D2E"
+                    android:textColor="#164863"
                     android:textStyle="bold" />
 
                 <Button
@@ -101,11 +101,11 @@
                     android:layout_height="match_parent"
                     android:layout_margin="5dp"
                     android:backgroundTint="#FFFFFF"
-                    android:drawableLeft="@drawable/ic_eq"
+                    android:drawableLeft="@drawable/ic_rep"
                     android:fontFamily="@font/poppins_reg"
                     android:gravity="center"
                     android:paddingHorizontal="20dp"
-                    android:text="Equipment"
+                    android:text="Reptiles"
                     android:textAllCaps="false"
                     android:textColor="#1A4D2E"
                     android:textStyle="bold" />
@@ -128,7 +128,7 @@
                 android:layout_marginBottom="10dp"
                 android:fontFamily="@font/poppins_reg"
                 android:text="Popular"
-                android:textColor="#1A4D2E"
+                android:textColor="#164863"
                 android:textSize="20dp"
                 android:textStyle="bold" />
         </LinearLayout>
