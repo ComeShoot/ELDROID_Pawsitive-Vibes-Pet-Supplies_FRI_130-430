@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F9F7F4">
+
+    <!-- Header with Title and Close Button -->
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/closeButton"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_close"
+            android:contentDescription="Close icon"
+            android:layout_marginEnd="8dp" />
+
+        <TextView
+            android:id="@+id/cartTitle"
+            android:layout_width="285dp"
+            android:layout_height="55dp"
+            android:text="Cart"
+            android:gravity="center"
+            android:textColor="#1E2A45"
+            android:textSize="30dp"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <!-- Cart Items Section -->
+
+    <!-- Bottom Bar with Subtotal and Checkout Button -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_above="@id/bottomBar"
+        android:layout_below="@id/header"
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="-2dp"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- First Seller Section -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:background="#FFFFFF"
+                android:elevation="2dp"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/checkbox1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp" />
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginStart="8dp"
+                        android:contentDescription="Marketplace icon"
+                        android:src="@drawable/ic_marketplace" />
+
+
+                    <TextView
+                        android:id="@+id/seller1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="VEGGIE OFFICIAL"
+                        android:textColor="#00008B"
+                        android:textSize="16sp"
+                        android:textStyle="bold"/>
+
+                    <ImageView
+                        android:id="@+id/nextIcon"
+                        android:layout_width="17dp"
+                        android:layout_height="16dp"
+                        android:layout_marginStart="8dp"
+                        android:contentDescription="Next icon"
+                        android:src="@drawable/next_icon" />
+
+                    <TextView
+                        android:id="@+id/preferredLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:background="#FFA500"
+                        android:padding="4dp"
+                        android:text="Preferred"
+                        android:textColor="#FFFFFF"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <!-- Product 1 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="8dp">
+
+                    <CheckBox
+                        android:id="@+id/checkbox2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp" />
+
+                    <ImageView
+                        android:id="@+id/productImage1"
+                        android:layout_width="90dp"
+                        android:layout_height="110dp"
+                        android:layout_marginEnd="20dp"
+                        android:contentDescription="Product image"
+                        android:src="@drawable/ic_product" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/productName1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Olive Shampoo"
+                            android:textColor="#00008B"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/productDescription1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="For Dogs and Cats"
+                            android:textColor="#000000"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/productPrice1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="₱500.00"
+                            android:textColor="#F57C00"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <!-- Quantity Control -->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <Button
+                                android:id="@+id/decrementButton1"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:backgroundTint="#E0E0E0"
+                                android:text="-" />
+
+                            <TextView
+                                android:id="@+id/quantityText1"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:background="#FFFFFF"
+                                android:gravity="center"
+                                android:text="1"
+                                android:textColor="#000000" />
+
+                            <Button
+                                android:id="@+id/incrementButton1"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:backgroundTint="#E0E0E0"
+                                android:text="+" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Additional Items can be added in the same way -->
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#FFFFFF"
+        android:padding="16dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <!-- Subtotal Text -->
+
+            <!-- Checkout Button -->
+            <TextView
+                android:id="@+id/subtotalText"
+                android:layout_width="10dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingHorizontal="8sp"
+                android:text="Subtotal"
+                android:textColor="#1E2A45"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+
+            <Button
+                android:id="@+id/checkoutButton"
+                android:layout_width="185dp"
+                android:layout_height="60dp"
+                android:text="Check Out"
+                android:backgroundTint="#023047"
+                android:textColor="#FFFFFF"
+                android:layout_marginStart="16dp"
+                android:paddingHorizontal="30dp"/>
+
+        </LinearLayout>
+
+        <!-- Total Amount Text Below Subtotal -->
+        <TextView
+            android:id="@+id/totalAmount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="₱214.00"
+            android:textColor="#1E2A45"
+            android:textSize="23sp"
+            android:textStyle="bold"
+            android:gravity="start"
+            android:layout_marginTop="8dp"/>
+    </LinearLayout>
+</RelativeLayout>
