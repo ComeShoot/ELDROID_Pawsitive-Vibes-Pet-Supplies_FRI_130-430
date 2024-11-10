@@ -8,6 +8,6 @@
 <!--        android:color="@color/black" /> &lt;!&ndash; Adjust color as needed &ndash;&gt;-->
 
     <!-- Corner Radius -->
-    <corners android:radius="16dp" /> <!-- Adjust radius as needed -->
+    <corners android:radius="10dp" /> <!-- Adjust radius as needed -->
 
 </shape>
