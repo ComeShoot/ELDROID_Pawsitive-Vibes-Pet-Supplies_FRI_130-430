@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Home Button -->
+    <item
+        android:id="@+id/homebtn"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginEnd="16dp"
+        android:icon="@drawable/ic_newhome"
+        android:textSize="10sp"
+        android:title="Home"/>
+
+    <!-- Transaction Button -->
+    <item
+        android:id="@+id/transactionbtn"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:icon="@drawable/ic_newwallet2"
+        android:textSize="10sp"
+        android:title="Transaction"/>
+
+    <!-- Purchase Button -->
+    <item
+        android:id="@+id/purchasebtn"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:icon="@drawable/ic_notif"
+        android:textSize="10sp"
+        android:title="Notification"/>
+
+    <!-- Settings Button -->
+    <item
+        android:id="@+id/settingsbtn"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="16dp"
+        android:icon="@drawable/ic_newsettings"
+        android:textSize="10sp"
+        android:title="Settings"/>
+
+</menu>

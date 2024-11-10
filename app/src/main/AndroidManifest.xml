@@ -13,22 +13,43 @@
         android:theme="@style/Theme.PawsitiveVibes"
         tools:targetApi="31">
         <activity
-            android:name=".SelectRoleActivity"
+            android:name=".view.CartActivity"
             android:exported="false" />
         <activity
-            android:name=".RegisterActivity"
+            android:name=".view.CheckoutActivity"
             android:exported="false" />
         <activity
-            android:name=".ResetPasswordActivity"
+            android:name=".view.AddToCartActivity"
             android:exported="false" />
         <activity
-            android:name=".ForgotPasswordActivity"
+            android:name=".view.AboutUsActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".view.EditProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.EditProductActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.AddProductActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.SelectRoleActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.ResetPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.ForgotPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.LoginActivity"
             android:exported="true" />
         <activity
-            android:name=".SplashScreen"
+            android:name=".view.SplashScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -37,7 +58,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".view.MainActivity"
             android:exported="true" />
     </application>
 
