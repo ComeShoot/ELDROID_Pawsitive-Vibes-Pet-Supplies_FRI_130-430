@@ -23,7 +23,7 @@
 
     <!-- Purchase Button -->
     <item
-        android:id="@+id/nav_purchase"
+        android:id="@+id/nav_notification"
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_marginStart="16dp"

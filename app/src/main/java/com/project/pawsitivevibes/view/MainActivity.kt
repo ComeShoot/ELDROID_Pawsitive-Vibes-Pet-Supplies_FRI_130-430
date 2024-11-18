@@ -1,10 +1,7 @@
 package com.project.pawsitivevibes.view
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.project.pawsitivevibes.R
@@ -31,8 +28,8 @@ class MainActivity : AppCompatActivity() {
                     loadFragment(TransactionFragment())
                     true
                 }
-                R.id.nav_purchase -> {
-                    loadFragment(PurchaseFragment())
+                R.id.nav_notification -> {
+                    loadFragment(NotificationFragment())
                     true
                 }
                 R.id.nav_settings -> {
