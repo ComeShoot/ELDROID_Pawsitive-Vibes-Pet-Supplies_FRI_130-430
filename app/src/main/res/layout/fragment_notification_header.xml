@@ -8,8 +8,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:paddingBottom="10dp"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView2"
@@ -24,9 +24,8 @@
                 android:id="@+id/myProfPic"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/ic_person"
                 android:scaleType="centerCrop"
-                />
+                android:src="@drawable/ic_person" />
         </androidx.cardview.widget.CardView>
 
         <TextView
@@ -37,7 +36,7 @@
             android:layout_marginTop="15dp"
             android:fontFamily="@font/poppins_reg"
             android:gravity="center"
-            android:text="Dashboard"
+            android:text="Notification"
             android:textColor="#164863"
             android:textSize="20dp"
             android:textStyle="bold" />
