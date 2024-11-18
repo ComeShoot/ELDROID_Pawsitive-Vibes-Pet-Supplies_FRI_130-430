@@ -27,7 +27,6 @@
             android:textColor="#164863"
             android:textSize="20sp"
             android:textStyle="bold"
-
             android:layout_gravity="center_vertical" />
 
     </LinearLayout>
@@ -156,20 +155,97 @@
 
     <LinearLayout
         android:layout_width="354dp"
-        android:layout_height="50dp"
+        android:layout_height="25dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="382dp"
         android:background="@android:color/white"
-        android:padding="16dp"/>
+        android:padding="16dp" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_marginStart="260dp"
-        android:layout_marginTop="382dp"
+    <TextView
+        android:layout_width="45sp"
+        android:layout_height="15dp"
+        android:text="1 item"
+        android:textStyle="bold"
         android:textSize="10dp"
-        android:text="Order Received"
-        android:layout_marginLeft="@android:dimen/app_icon_size"
-        android:textColor="@color/white"/>
+        android:layout_marginTop="388dp"
+        android:layout_marginStart="35dp"
+        android:fontFamily="@font/poppins_reg"/>
+
+    <TextView
+        android:layout_width="60dp"
+        android:layout_height="15dp"
+        android:text="Order Total:"
+        android:textStyle="bold"
+        android:textSize="10dp"
+        android:layout_marginTop="388dp"
+        android:layout_marginStart="276dp"
+        android:fontFamily="@font/poppins_reg"/>
+
+    <TextView
+        android:layout_width="45dp"
+        android:layout_height="15dp"
+        android:text="₱ 189.00"
+        android:textStyle="bold"
+        android:textSize="10dp"
+        android:textColor="@android:color/holo_orange_light"
+        android:layout_marginTop="388dp"
+        android:layout_marginStart="335dp"
+        android:fontFamily="@font/poppins_reg"/>
+
+
+    <LinearLayout
+        android:layout_width="354dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="410dp"
+        android:background="@android:color/white"
+        android:padding="16dp" />
+
+    <ImageView
+        android:layout_width="25dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="408dp"
+        android:src="@drawable/expres"
+        android:contentDescription="Profile icon"/>
+
+    <TextView
+        android:layout_width="210dp"
+        android:layout_height="15dp"
+        android:text="Parcel has departed from sorting facility"
+        android:textStyle="bold"
+        android:textSize="10dp"
+        android:layout_marginTop="415dp"
+        android:layout_marginStart="65dp"
+        android:fontFamily="@font/poppins_reg"/>
+
+    <TextView
+        android:layout_width="18dp"
+        android:layout_height="28dp"
+        android:text=">"
+        android:textSize="25dp"
+        android:layout_marginTop="405dp"
+        android:layout_marginStart="364dp"
+        android:fontFamily="@font/poppins_reg"/>
+
+
+    <LinearLayout
+        android:layout_width="354dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="437dp"
+        android:background="@android:color/white"
+        android:padding="16dp" />
+
+    <TextView
+        android:layout_width="210dp"
+        android:layout_height="15dp"
+        android:text="Delivery attemp should be made between 06-02-2024 and 13-02-2024"
+        android:textStyle="bold"
+        android:textSize="10dp"
+        android:layout_marginTop="442dp"
+        android:layout_marginStart="45dp"
+        android:fontFamily="@font/poppins_reg"/>
+
 
 </RelativeLayout>
