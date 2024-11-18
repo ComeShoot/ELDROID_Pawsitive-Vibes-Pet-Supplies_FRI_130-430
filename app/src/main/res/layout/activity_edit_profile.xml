@@ -127,7 +127,7 @@
                     android:fontFamily="@font/dmsans_reg"
                     android:gravity="center"
                     android:inputType="textEmailAddress"
-                    android:texColor="#164863"
+                    android:textColor="#164863"
                     android:textSize="15sp" />
 
                 <TextView
@@ -149,7 +149,7 @@
                     android:layout_marginBottom="20dp"
                     android:background="@drawable/rounded_edittext_background"
                     android:backgroundTint="#DDF2FD"
-                    android:texColor="#164863"
+                    android:textColor="#164863"
                     android:fontFamily="@font/dmsans_reg"
                     android:gravity="center"
                     android:inputType="textEmailAddress"
@@ -177,7 +177,7 @@
                     android:fontFamily="@font/dmsans_reg"
                     android:gravity="center"
                     android:inputType="phone"
-                    android:texColor="#164863"
+                    android:textColor="#164863"
                     android:textSize="15sp" />
 
                 <TextView
@@ -202,7 +202,7 @@
                     android:fontFamily="@font/dmsans_reg"
                     android:gravity="center"
                     android:inputType="textPostalAddress"
-                    android:texColor="#164863"
+                    android:textColor="#164863"
                     android:textSize="15sp" />
 
                 <TextView
@@ -227,7 +227,7 @@
                     android:fontFamily="@font/dmsans_reg"
                     android:gravity="center"
                     android:inputType="date"
-                    android:texColor="#164863"
+                    android:textColor="#164863"
                     android:textSize="15sp" />
 
                 <Button

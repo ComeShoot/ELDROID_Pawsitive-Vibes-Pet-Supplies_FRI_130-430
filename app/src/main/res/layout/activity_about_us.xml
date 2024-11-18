@@ -99,7 +99,6 @@
                 android:layout_margin="20dp"
                 android:fontFamily="@font/dmsans_reg"
                 android:gravity="center"
-                android:textAlignment=""
                 android:text="@string/lorem_ipsum"
                 android:textColor="#A6A6A6"
                 android:textSize="15sp" />
