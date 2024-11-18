@@ -61,5 +61,6 @@
             android:name=".view.MainActivity"
             android:exported="false" />
     </application>
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
