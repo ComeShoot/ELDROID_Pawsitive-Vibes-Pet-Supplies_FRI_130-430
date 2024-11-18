@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -56,5 +57,9 @@ dependencies {
     implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1")
     implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.6.1")
     implementation ("com.google.android.material:material:1.10.0")
-
+    implementation(platform("com.google.firebase:firebase-bom:33.6.0"))
+    implementation ("com.google.firebase:firebase-auth-ktx:22.0.0")  // Firebase Auth
+    implementation ("com.google.firebase:firebase-firestore-ktx:24.4.0")  // Firebase Firestore
+    implementation ("com.google.firebase:firebase-core:21.0.0")
 }
+

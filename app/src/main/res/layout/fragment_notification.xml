@@ -1,14 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center">
+    android:background="#F9F7F4">
 
-    <TextView
-        android:id="@+id/tv_fragment_name"
-        android:layout_width="wrap_content"
+    <!-- Notification Item -->
+    <LinearLayout
+        android:id="@+id/notificationItem"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Notification Fragment"
-        android:textSize="20sp"
-        android:textStyle="bold" />
-</FrameLayout>
+        android:layout_margin="16dp"
+        android:orientation="horizontal"
+        android:background="@drawable/notification_background"
+        android:padding="12dp"
+        android:gravity="center_vertical">
+
+        <!-- Product Image -->
+        <ImageView
+            android:id="@+id/itemImage"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_product"
+            android:contentDescription="Product image"
+            android:layout_marginEnd="10dp" />
+
+        <!-- Notification Text -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/itemTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Olive Shampoo"
+                android:textColor="#164863"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/itemMessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Parcel has departed from sorting facility"
+                android:textColor="#6E7A8A"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <!-- Time Text -->
+        <TextView
+            android:id="@+id/itemTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6:45 PM"
+            android:textColor="#6E7A8A"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+</RelativeLayout>

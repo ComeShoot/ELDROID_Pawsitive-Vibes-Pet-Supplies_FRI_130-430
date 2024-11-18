@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "388688318231",
+    "project_id": "pawsitive-vibes-eded2",
+    "storage_bucket": "pawsitive-vibes-eded2.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:388688318231:android:b58d4373938707c13bf152",
+        "android_client_info": {
+          "package_name": "com.project.pawsitivevibes"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLOBwmQJU2-NVSitRPdo1NGWQIgbiKlZg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
