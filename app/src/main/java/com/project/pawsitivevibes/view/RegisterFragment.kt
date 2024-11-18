@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -19,6 +20,7 @@ class RegisterFragment : Fragment() {
 
     private lateinit var emailEditText: EditText
     private lateinit var passwordEditText: EditText
+    private lateinit var signInButton: Button
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,6 +30,15 @@ class RegisterFragment : Fragment() {
 
         emailEditText = binding.findViewById(R.id.emailEditText)
         passwordEditText = binding.findViewById(R.id.passwordEditText)
+        signInButton= binding.findViewById(R.id.signinbutton)
+
+        signInButton.setOnClickListener {
+            // Navigate to LoginFragment when "Login" is clicked
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, LoginFragment())
+                .addToBackStack(null) // Allows going back to RegisterFragment
+                .commit()
+        }
 
         binding.findViewById<View>(R.id.registerButton).setOnClickListener {
             val email = emailEditText.text.toString()

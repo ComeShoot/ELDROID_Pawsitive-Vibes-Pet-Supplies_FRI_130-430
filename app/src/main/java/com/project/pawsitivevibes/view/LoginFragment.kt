@@ -1,9 +1,11 @@
 package com.project.pawsitivevibes.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -19,7 +21,8 @@ class LoginFragment : Fragment() {
 
     private lateinit var emailEditText: EditText
     private lateinit var passwordEditText: EditText
-
+    private lateinit var signUpButton: Button
+    private lateinit var forgotPasswordButton: Button
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -28,6 +31,23 @@ class LoginFragment : Fragment() {
 
         emailEditText = binding.findViewById(R.id.emailEditText)
         passwordEditText = binding.findViewById(R.id.passwordEditText)
+        signUpButton = binding.findViewById(R.id.signupbutton)
+        forgotPasswordButton = binding.findViewById(R.id.forgotBtn)
+
+        signUpButton.setOnClickListener {
+            // Navigate to RegisterFragment when "Sign Up" is clicked
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, RegisterFragment())
+                .addToBackStack(null) // Allows going back to LoginFragment
+                .commit()
+        }
+
+        forgotPasswordButton.setOnClickListener {
+            // Create an Intent to navigate to ForgotPasswordActivity
+            val intent = Intent(requireContext(), ForgotPasswordActivity::class.java)
+            startActivity(intent)
+        }
+
 
         binding.findViewById<View>(R.id.loginButton).setOnClickListener {
             val email = emailEditText.text.toString()
