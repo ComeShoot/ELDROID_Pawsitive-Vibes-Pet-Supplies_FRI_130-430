@@ -8,7 +8,7 @@ class ResetPasswordActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.activity_reset_password)
+        setContentView(R.layout.fragment_reset_password)
 
     }
 }

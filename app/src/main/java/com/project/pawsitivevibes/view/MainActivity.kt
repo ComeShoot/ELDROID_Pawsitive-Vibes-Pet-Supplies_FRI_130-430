@@ -11,9 +11,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Default fragment
+        // Default fragments in both containers
         supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, HomeFragment())
+            .replace(R.id.fragment_container_one, HomeHeaderFragment())
+            .replace(R.id.fragment_container_two, HomeFragment())
             .commit()
 
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
@@ -21,19 +22,23 @@ class MainActivity : AppCompatActivity() {
         bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.nav_home -> {
-                    loadFragment(HomeFragment())
+                    loadFragmentInContainerOne(HomeHeaderFragment())
+                    loadFragmentInContainerTwo(HomeFragment())
                     true
                 }
                 R.id.nav_transaction -> {
-                    loadFragment(TransactionFragment())
+                    loadFragmentInContainerOne(TransactionHeaderFragment())
+                    loadFragmentInContainerTwo(TransactionFragment())
                     true
                 }
                 R.id.nav_notification -> {
-                    loadFragment(NotificationFragment())
+                    loadFragmentInContainerOne(NotificationHeaderFragment())
+                    loadFragmentInContainerTwo(NotificationFragment())
                     true
                 }
                 R.id.nav_settings -> {
-                    loadFragment(SettingsFragment())
+                    loadFragmentInContainerOne(SettingsHeaderFragment())
+                    loadFragmentInContainerTwo(SettingsFragment())
                     true
                 }
                 else -> false
@@ -41,9 +46,16 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun loadFragment(fragment: Fragment) {
+    private fun loadFragmentInContainerOne(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, fragment)
+            .replace(R.id.fragment_container_one, fragment)
+            .commit()
+    }
+
+    private fun loadFragmentInContainerTwo(fragment: Fragment) {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container_two, fragment)
             .commit()
     }
 }
+
