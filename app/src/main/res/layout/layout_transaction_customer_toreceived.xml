@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="10dp"
+    android:layout_marginVertical="5dp"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="8dp"
+    android:clickable="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/bg_greencard"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints">
+
+            <LinearLayout
+                android:id="@+id/linearLayout11"
+                android:layout_marginBottom="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_alignParentTop="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="20dp"
+                    app:cardCornerRadius="50dp">
+
+                    <ImageView
+                        android:id="@+id/profilePic"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_person" />
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/merchantStore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="1dp"
+                    android:fontFamily="@font/dmsans_reg"
+                    android:text="Name"
+                    android:textColor="#164863"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="55dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="1dp"
+                    android:background="@drawable/preferred"
+                    android:fontFamily="@font/dmsans_reg"
+                    android:text="  Preferred"
+                    android:textColor="#FFFFFF"
+                    android:textSize="10sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="55dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="1dp"
+                    android:fontFamily="@font/dmsans_reg"
+                    android:text="  To Receive"
+                    android:textColor="#164863"
+                    android:textSize="10sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="155dp"
+                    android:background="@android:color/transparent"
+                    android:drawableStart="@drawable/ic_more"
+                    android:paddingStart="35dp"
+                    android:paddingEnd="5dp" />
+
+            </LinearLayout>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView1"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="50dp"
+                app:cardCornerRadius="10dp">
+
+                <ImageView
+                    android:id="@+id/transactionProductImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_person" />
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/productTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="130dp"
+                android:layout_marginTop="50dp"
+                android:fontFamily="@font/poppins_reg"
+                android:text="Product title"
+                android:textColor="#164863"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/productDescription"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="130dp"
+                android:layout_marginTop="70dp"
+                android:fontFamily="@font/poppins_reg"
+                android:text="Description"
+                android:textColor="#164863"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/productPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/productDescription"
+                android:layout_marginLeft="130dp"
+                android:layout_marginTop="3dp"
+                android:text="Product Price"
+                android:textColor="#D0A642"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/itemQuantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/productDescription"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="50dp"
+                android:fontFamily="@font/poppins_reg"
+                android:text="Item Quantity"
+                android:textColor="#164863"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/TextView4"
+                android:layout_width="60dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/productDescription"
+                android:layout_marginLeft="180dp"
+                android:layout_marginTop="50dp"
+                android:layout_toRightOf="@+id/itemQuantity"
+                android:fontFamily="@font/poppins_reg"
+                android:text="Total Order"
+                android:textColor="#164863"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/totalPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/productDescription"
+                android:layout_marginLeft="245dp"
+                android:layout_marginTop="50dp"
+                android:layout_toRightOf="@+id/itemQuantity"
+                android:fontFamily="@font/poppins_reg"
+                android:text="Price"
+                android:textColor="#D0A642"
+                android:textSize="10sp" />
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_below="@+id/productDescription"
+                android:layout_marginLeft="13dp"
+                android:layout_marginTop="80dp"
+                android:outlineAmbientShadowColor="#4F6F52"
+                android:outlineSpotShadowColor="#4F6F52"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_truck" />
+
+            <TextView
+                android:id="@+id/TextView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/productDescription"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="80dp"
+                android:fontFamily="@font/poppins_reg"
+                android:text="Parcel has departed from sorting facility"
+                android:textColor="#164863"
+                android:textSize="10sp" />
+
+
+            <TextView
+                android:id="@+id/destinationDelivery"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/productDescription"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="100dp"
+                android:fontFamily="@font/poppins_reg"
+                android:text="Delivery to"
+                android:textColor="#164863"
+                android:textSize="10sp" />
+
+        </RelativeLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
