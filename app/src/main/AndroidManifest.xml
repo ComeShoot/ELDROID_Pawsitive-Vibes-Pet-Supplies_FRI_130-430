@@ -43,6 +43,7 @@
         <activity
             android:name=".view.ResetPasswordActivity"
             android:exported="false" />
+
         <activity
             android:name=".view.ForgotPasswordActivity"
             android:exported="false" />

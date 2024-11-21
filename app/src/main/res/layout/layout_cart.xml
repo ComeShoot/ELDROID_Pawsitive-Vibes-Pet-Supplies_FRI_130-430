@@ -1,172 +1,130 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="150dp"
-    android:backgroundTint="@color/white"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_marginHorizontal="10dp"
-    android:layout_marginVertical="5dp"
-    app:cardCornerRadius="10dp"
-    app:cardElevation="8dp"
-    android:clickable="true">
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="4dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="10dp">
+        android:layout_height="wrap_content"
+        android:padding="8dp">
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardView"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            app:cardCornerRadius="15dp"
-            app:layout_constraintBottom_toBottomOf="@+id/guidelinehori1"
-            app:layout_constraintEnd_toEndOf="@+id/guideline2"
-            app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toTopOf="@+id/guidelinehori2"
-            tools:ignore="MissingConstraints">
+        <!-- Checkbox for selection -->
+        <CheckBox
+            android:id="@+id/productCheckbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:id="@+id/productImage"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerCrop"
-                android:src="@drawable/ic_person" />
-        </androidx.cardview.widget.CardView>
+        <!-- Store Name -->
 
+        <!-- Product Image -->
+
+        <TextView
+            android:id="@+id/storeName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="212dp"
+            android:fontFamily="@font/poppins_reg"
+            android:text="BUMI OFFICIAL"
+
+            android:textColor="#164863"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/productImage"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="8dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_person"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/storeName" />
+
+        <!-- Product Title -->
         <TextView
             android:id="@+id/productTitle"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_reg"
-            android:text="Product Title"
+            android:text="Olive Shampoo"
             android:textColor="#164863"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/guide3Btn"
-            app:layout_constraintHorizontal_bias="0.542"
-            app:layout_constraintStart_toStartOf="@+id/guideline2"
-            app:layout_constraintTop_toTopOf="@+id/guidelinehori2"
-            tools:ignore="MissingConstraints" />
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@id/productImage"
+            app:layout_constraintTop_toTopOf="@id/productImage"
+            app:layout_constraintEnd_toEndOf="parent" />
 
+        <!-- Product Description -->
         <TextView
             android:id="@+id/productDescription"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_reg"
-            android:text="Description"
-            android:textColor="#164863"
-            android:textSize="10sp"
-            app:layout_constraintBottom_toTopOf="@+id/productQuantity"
-            app:layout_constraintEnd_toStartOf="@+id/guide3Btn"
-            app:layout_constraintHorizontal_bias="0.359"
-            app:layout_constraintStart_toStartOf="@+id/guideline2"
-            app:layout_constraintTop_toTopOf="@+id/guidelinehori2"
-            app:layout_constraintVertical_bias="0.857"
-            tools:ignore="MissingConstraints" />
+            android:text="For Dogs and Cats"
+            android:textColor="#8C8C8C"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@id/productTitle"
+            app:layout_constraintTop_toBottomOf="@id/productTitle"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-        <TextView
-            android:id="@+id/productQuantity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="4dp"
-            android:fontFamily="@font/poppins_reg"
-            android:text="1"
-            android:textColor="#164863"
-            android:textSize="10sp"
-            app:layout_constraintBottom_toTopOf="@+id/guidelinehori3"
-            app:layout_constraintEnd_toStartOf="@+id/guide3Btn"
-            app:layout_constraintHorizontal_bias="0.45"
-            app:layout_constraintStart_toStartOf="@+id/guideline2"
-            tools:ignore="MissingConstraints" />
-
+        <!-- Product Price -->
         <TextView
             android:id="@+id/productPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="8dp"
             android:fontFamily="@font/poppins_reg"
-            android:gravity="center"
-            android:text="₱00.00"
+            android:text="₱500.00"
             android:textColor="#D0A642"
-            android:textSize="15sp"
-            app:layout_constraintStart_toStartOf="@+id/guideline2"
-            app:layout_constraintTop_toTopOf="@+id/guidelinehori3"
-            tools:ignore="MissingConstraints" />
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@id/productTitle"
+            app:layout_constraintTop_toBottomOf="@id/productDescription" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline"
+        <!-- Quantity Controls -->
+        <LinearLayout
+            android:id="@+id/quantityControls"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.05" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent=".30" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guidelinehori1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="1.0" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.349"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/productPrice"
+            app:layout_constraintVertical_bias="0.0">
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guidelinehori2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent=".10" />
+            <Button
+                android:id="@+id/button_decrement"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:text="−"
+                android:textColor="#ffffff"
+                android:textSize="14sp" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent=".40" />
+            <!-- Quantity TextView -->
+            <TextView
+                android:id="@+id/text_quantity"
+                android:layout_width="30dp"
+                android:layout_height="48dp"
+                android:gravity="center"
+                android:text="1"
+                android:textSize="14sp" />
 
-        <Button
-            android:id="@+id/checkOutBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_filterbground"
-            android:backgroundTint="@color/btnpmain"
-            android:fontFamily="@font/poppins_reg"
-            android:text="Check Out"
-            android:textAllCaps="false"
-            android:textColor="#ffffff"
-            android:textSize="13sp"
-            app:layout_constraintBottom_toBottomOf="@+id/guidelinehori4"
-            app:layout_constraintStart_toStartOf="@+id/guide3Btn"
-            app:layout_constraintTop_toTopOf="@+id/guidelinehori3"
-            app:layout_constraintVertical_bias="0.0"
-            tools:ignore="MissingConstraints" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guide3Btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.69" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guidelinehori3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.60" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guidelinehori4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent=".95" />
-
+            <!-- Increment Button -->
+            <Button
+                android:id="@+id/button_increment"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:text="+"
+                android:textColor="#ffffff"
+                android:textSize="14sp" />
+        </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
