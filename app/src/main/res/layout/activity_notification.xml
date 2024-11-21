@@ -5,42 +5,13 @@
     android:background="#F9F7F4">
 
     <!-- Header with Profile Icon and Title -->
-    <LinearLayout
-        android:id="@+id/header"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="16dp">
 
-        <!-- Profile Icon -->
-        <ImageView
-            android:id="@+id/profileIcon"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/ic_person"
-            android:contentDescription="Profile icon"
-            android:layout_gravity="center_vertical"
-            android:layout_marginEnd="8dp" />
-
-        <!-- Title -->
-        <TextView
-            android:id="@+id/titleText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Notification"
-            android:textColor="#164863"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_gravity="center_vertical" />
-    </LinearLayout>
 
     <!-- Notification Item -->
     <LinearLayout
         android:id="@+id/notificationItem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/header"
         android:layout_margin="16dp"
         android:orientation="horizontal"
         android:background="@drawable/notification_background"
