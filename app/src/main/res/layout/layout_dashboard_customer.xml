@@ -21,8 +21,8 @@
             android:scaleType="centerInside"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent
-            app:layout_constraintWidth_percent="0.5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintWidth_percent="0.6"
             app:layout_constraintDimensionRatio="1:1"
             android:src="@drawable/ic_addimage" />
 
@@ -31,7 +31,7 @@
             android:id="@+id/productQuantity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="4dp"
+            android:layout_marginEnd="8dp"
             android:fontFamily="@font/poppins_reg"
             android:text="x45"
             android:textColor="#8C8C8C"
@@ -83,26 +83,13 @@
             android:id="@+id/removeButton"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="4dp"
-            android:src="@drawable/ic_removes"
+            android:layout_marginBottom="8dp"
             android:contentDescription="Remove Button"
-            app:layout_constraintWidth_percent="0.15"
-            app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/moreOptionsButton" />
-
-        <!-- More Options Button -->
-        <ImageView
-            android:id="@+id/moreOptionsButton"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginBottom="4dp"
-            android:contentDescription="More Options"
-            android:src="@drawable/ic_mores"
+            android:src="@drawable/ic_adds"
             app:layout_constraintWidth_percent="0.15"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
