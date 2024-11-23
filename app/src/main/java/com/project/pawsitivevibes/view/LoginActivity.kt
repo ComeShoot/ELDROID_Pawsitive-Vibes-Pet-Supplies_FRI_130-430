@@ -18,4 +18,5 @@ class LoginActivity : AppCompatActivity() {
                 .commit()
         }
     }
+
 }
