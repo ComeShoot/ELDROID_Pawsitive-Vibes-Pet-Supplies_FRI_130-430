@@ -51,8 +51,9 @@ class LoginFragment : Fragment() {
         binding.findViewById<View>(R.id.loginButton).setOnClickListener {
             val email = emailEditText.text.toString()
             val password = passwordEditText.text.toString()
+            val role = "customer"
             if (email.isNotEmpty() && password.isNotEmpty()) {
-                val user = User(email, password)
+                val user = User(email, password, role)
                 authViewModel.loginUser(user)
             }
         }
