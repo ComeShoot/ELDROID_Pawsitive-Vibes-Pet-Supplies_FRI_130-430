@@ -163,8 +163,8 @@
                 android:layout_width="60dp"
                 android:layout_height="20dp"
                 android:layout_below="@+id/productDescription"
-                android:layout_marginLeft="180dp"
-                android:layout_marginTop="50dp"
+                android:layout_marginLeft="153dp"
+                android:layout_marginTop="49dp"
                 android:layout_toRightOf="@+id/itemQuantity"
                 android:fontFamily="@font/poppins_reg"
                 android:text="Total Order"
@@ -176,8 +176,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/productDescription"
-                android:layout_marginLeft="245dp"
-                android:layout_marginTop="50dp"
+                android:layout_marginLeft="214dp"
+                android:layout_marginTop="49dp"
                 android:layout_toRightOf="@+id/itemQuantity"
                 android:fontFamily="@font/poppins_reg"
                 android:text="Price"
@@ -220,8 +220,15 @@
                 android:textColor="#164863"
                 android:textSize="10sp" />
 
-        </RelativeLayout>
 
+
+        </RelativeLayout>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintGuide_percent="0.65"
+            android:orientation="vertical" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>

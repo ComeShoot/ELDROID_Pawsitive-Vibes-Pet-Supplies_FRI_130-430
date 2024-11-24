@@ -1,5 +1,6 @@
 package com.project.pawsitivevibes.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.project.pawsitivevibes.R
 import com.project.pawsitivevibes.model.Item
 
-class ItemAdapter(private val items: List<Item>) :
+class ItemAdapter(private val items: List<Item>, private val onAddToCartClick: (Item) -> Unit) :
     RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
 
     class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -18,6 +19,7 @@ class ItemAdapter(private val items: List<Item>) :
         val itemImage: ImageView = view.findViewById(R.id.productImage)
         val itemPrice: TextView = view.findViewById(R.id.productPrice)
         val itemQuantity: TextView = view.findViewById(R.id.productQuantity)
+        val addToCartButton: ImageView = view.findViewById(R.id.addToCartButton)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
@@ -33,7 +35,13 @@ class ItemAdapter(private val items: List<Item>) :
         holder.description.text = item.description
         holder.itemPrice.text = item.price
         holder.itemQuantity.text = item.quantity
+
+        // Set onClickListener for the addToCartButton
+        holder.addToCartButton.setOnClickListener {
+            onAddToCartClick(item) // Pass the item clicked to the onClick handler
+        }
     }
 
     override fun getItemCount(): Int = items.size
 }
+
