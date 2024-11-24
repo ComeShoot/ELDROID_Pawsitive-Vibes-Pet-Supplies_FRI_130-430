@@ -18,23 +18,23 @@ class TransactionReceiveViewModel : ViewModel() {
         val dummyData = listOf(
             TransactionReceive(
                 profileImageRes = R.drawable.ic_person, // Replace with a valid drawable resource
-                merchantStoreName = "John's Grocery",
-                productTitle = "Organic Apples",
-                productDescription = "Fresh and crisp organic apples.",
-                productPrice = "$3.00",
+                merchantStoreName = "John's PetVet",
+                productTitle = "Dental Sticks",
+                productDescription = "Fresh and crisp organic dental stick.",
+                productPrice = "₱36.00",
                 itemQuantity = "3 pcs",
-                totalPrice = "$9.00",
-                deliveryDestination = "123 Elm Street, New York, NY"
+                totalPrice = "₱108.00",
+                deliveryDestination = "123 Elmo Street, Manila, BGC"
             ),
             TransactionReceive(
                 profileImageRes = R.drawable.ic_person, // Replace with a valid drawable resource
-                merchantStoreName = "City Electronics",
-                productTitle = "Wireless Headphones",
-                productDescription = "Noise-cancelling wireless headphones.",
-                productPrice = "$150.00",
+                merchantStoreName = "Vetty Supplies",
+                productTitle = "Ear Drops",
+                productDescription = "Clean your pet's ears with ease",
+                productPrice = "₱150.00",
                 itemQuantity = "1 unit",
-                totalPrice = "$150.00",
-                deliveryDestination = "45 Tech Park, San Francisco, CA"
+                totalPrice = "₱150.00",
+                deliveryDestination = "45 Tech Park, San Isidro, CA"
             )
         )
         _transactions.value = dummyData
