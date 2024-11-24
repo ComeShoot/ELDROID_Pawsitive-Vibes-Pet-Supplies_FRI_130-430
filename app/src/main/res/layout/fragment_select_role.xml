@@ -44,8 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="16dp"
-            android:onClick="onSellerLayoutClick">
+            android:padding="16dp">
 
             <ImageView
                 android:id="@+id/sellerImage"
@@ -102,12 +101,11 @@
         app:cardElevation="4dp">
 
         <LinearLayout
-            id="@+id/customerLayout"
+            android:id="@+id/customerLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="16dp"
-            android:onClick="onCustomerLayoutClick">
+            android:padding="16dp">
 
             <ImageView
                 android:id="@+id/customerImage"

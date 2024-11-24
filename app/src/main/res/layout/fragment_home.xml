@@ -149,7 +149,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout22"
             app:spanCount="2"
-            tools:listitem="@layout/layout_dashboard" />
+            tools:listitem="@layout/layout_dashboard_customer" />
 
 <!--        <com.google.android.material.floatingactionbutton.FloatingActionButton-->
 <!--            android:id="@+id/fabbtn"-->

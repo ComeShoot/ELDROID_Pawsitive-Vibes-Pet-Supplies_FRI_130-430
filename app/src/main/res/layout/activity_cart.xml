@@ -71,12 +71,13 @@
             android:id="@+id/allDonationRecycler"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="@color/backgroundColor"
+            android:layout_marginTop="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/relativeLayout4"
             tools:listitem="@layout/layout_cart" />
+
 
         <LinearLayout
             android:id="@+id/linearLayout23"

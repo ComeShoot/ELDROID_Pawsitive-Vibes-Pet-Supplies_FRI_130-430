@@ -1,9 +1,11 @@
 package com.project.pawsitivevibes.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -30,7 +32,11 @@ class HomeFragment : Fragment() {
 
         // Observe the ViewModel data
         viewModel.items.observe(viewLifecycleOwner, Observer { items ->
-            val adapter = ItemAdapter(items)
+            val adapter = ItemAdapter(items) { item ->
+                // Handle the item click here (e.g., redirect to CartActivity)
+                val intent = Intent(requireActivity(), CartActivity::class.java)
+                startActivity(intent)
+            }
             recyclerView.adapter = adapter
         })
     }

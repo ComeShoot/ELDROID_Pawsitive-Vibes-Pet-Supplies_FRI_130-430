@@ -79,22 +79,22 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <!--                <EditText-->
-                <!--                    android:id="@+id/FullNameEditText"-->
-                <!--                    android:layout_width="285dp"-->
-                <!--                    android:layout_height="55dp"-->
-                <!--                    android:layout_marginTop="22dp"-->
-                <!--                    android:background="@drawable/rounded_edittext_background"-->
-                <!--                    android:backgroundTint="#DDF2FD"-->
-                <!--                    android:drawableStart="@drawable/ic_person"-->
-                <!--                    android:fontFamily="@font/dmsans_reg"-->
-                <!--                    android:gravity="center"-->
-                <!--                    android:hint="Full Name"-->
-                <!--                    android:inputType="textEmailAddress"-->
-                <!--                    android:paddingHorizontal="20dp"-->
-                <!--                    android:textColor="#1A4D2E"-->
-                <!--                    android:textColorHint="#A6A6A6"-->
-                <!--                    android:textSize="15sp" />-->
+                                <EditText
+                                    android:id="@+id/FullNameEditText"
+                                    android:layout_width="285dp"
+                                    android:layout_height="55dp"
+                                    android:layout_marginTop="22dp"
+                                    android:background="@drawable/rounded_edittext_background"
+                                    android:backgroundTint="#DDF2FD"
+                                    android:drawableStart="@drawable/ic_person"
+                                    android:fontFamily="@font/dmsans_reg"
+                                    android:gravity="center"
+                                    android:hint="Full Name"
+                                    android:inputType="textEmailAddress"
+                                    android:paddingHorizontal="20dp"
+                                    android:textColor="#1A4D2E"
+                                    android:textColorHint="#A6A6A6"
+                                    android:textSize="15sp" />
                 <EditText
                     android:id="@+id/emailEditText"
                     android:layout_width="285dp"
@@ -130,60 +130,60 @@
                     android:textColorHint="#A6A6A6"
                     android:textSize="15sp" />
 
-                <!--                <EditText-->
-                <!--                    android:id="@+id/phoneEditText"-->
-                <!--                    android:layout_width="285dp"-->
-                <!--                    android:layout_height="55dp"-->
-                <!--                    android:layout_marginTop="22dp"-->
-                <!--                    android:background="@drawable/rounded_edittext_background"-->
-                <!--                    android:backgroundTint="#DDF2FD"-->
-                <!--                    android:drawableStart="@drawable/ic_number"-->
-                <!--                    android:fontFamily="@font/dmsans_reg"-->
-                <!--                    android:gravity="center"-->
-                <!--                    android:hint="Mobile Number"-->
-                <!--                    android:inputType="phone"-->
-                <!--                    android:paddingHorizontal="20dp"-->
-                <!--                    android:textColor="#1A4D2E"-->
-                <!--                    android:textColorHint="#A6A6A6"-->
-                <!--                    android:textSize="15sp" />-->
+                                <EditText
+                                    android:id="@+id/phoneEditText"
+                                    android:layout_width="285dp"
+                                    android:layout_height="55dp"
+                                    android:layout_marginTop="22dp"
+                                    android:background="@drawable/rounded_edittext_background"
+                                    android:backgroundTint="#DDF2FD"
+                                    android:drawableStart="@drawable/ic_number"
+                                    android:fontFamily="@font/dmsans_reg"
+                                    android:gravity="center"
+                                    android:hint="Mobile Number"
+                                    android:inputType="phone"
+                                    android:paddingHorizontal="20dp"
+                                    android:textColor="#1A4D2E"
+                                    android:textColorHint="#A6A6A6"
+                                    android:textSize="15sp" />
 
-                <!--                <EditText-->
-                <!--                    android:id="@+id/locationEditText"-->
-                <!--                    android:layout_width="285dp"-->
-                <!--                    android:layout_height="55dp"-->
-                <!--                    android:layout_marginTop="22dp"-->
-                <!--                    android:background="@drawable/rounded_edittext_background"-->
-                <!--                    android:backgroundTint="#DDF2FD"-->
-                <!--                    android:drawableStart="@drawable/ic_location"-->
-                <!--                    android:fontFamily="@font/dmsans_reg"-->
-                <!--                    android:gravity="center"-->
-                <!--                    android:hint="Location"-->
-                <!--                    android:inputType="text"-->
-                <!--                    android:paddingHorizontal="20dp"-->
-                <!--                    android:textColor="#1A4D2E"-->
-                <!--                    android:textColorHint="#A6A6A6"-->
-                <!--                    android:textSize="15sp" />-->
-                <!--                <EditText-->
-                <!--                    android:id="@+id/dobEditText"-->
-                <!--                    android:layout_width="285dp"-->
-                <!--                    android:layout_height="55dp"-->
-                <!--                    android:layout_centerHorizontal="true"-->
-                <!--                    android:layout_centerVertical="false"-->
-                <!--                    android:layout_marginTop="30dp"-->
-                <!--                    android:layout_weight="0"-->
-                <!--                    android:background="@drawable/rounded_edittext_background"-->
-                <!--                    android:backgroundTint="#DDF2FD"-->
-                <!--                    android:drawableStart="@drawable/ic_dob"-->
-                <!--                    android:clickable="true"-->
-                <!--                    android:focusable="false"-->
-                <!--                    android:fontFamily="@font/dmsans_reg"-->
-                <!--                    android:gravity="center"-->
-                <!--                    android:hint="Date of Birth (MM/DD/YY)"-->
-                <!--                    android:inputType="date"-->
-                <!--                    android:paddingHorizontal="20dp"-->
-                <!--                    android:textColor="#1A4D2E"-->
-                <!--                    android:textColorHint="#A6A6A6"-->
-                <!--                    android:textSize="15sp" />-->
+                                <EditText
+                                    android:id="@+id/locationEditText"
+                                    android:layout_width="285dp"
+                                    android:layout_height="55dp"
+                                    android:layout_marginTop="22dp"
+                                    android:background="@drawable/rounded_edittext_background"
+                                    android:backgroundTint="#DDF2FD"
+                                    android:drawableStart="@drawable/ic_location"
+                                    android:fontFamily="@font/dmsans_reg"
+                                    android:gravity="center"
+                                    android:hint="Location"
+                                    android:inputType="text"
+                                    android:paddingHorizontal="20dp"
+                                    android:textColor="#1A4D2E"
+                                    android:textColorHint="#A6A6A6"
+                                    android:textSize="15sp" />
+<!--                                <EditText-->
+<!--                                    android:id="@+id/dobEditText"-->
+<!--                                    android:layout_width="285dp"-->
+<!--                                    android:layout_height="55dp"-->
+<!--                                    android:layout_centerHorizontal="true"-->
+<!--                                    android:layout_centerVertical="false"-->
+<!--                                    android:layout_marginTop="30dp"-->
+<!--                                    android:layout_weight="0"-->
+<!--                                    android:background="@drawable/rounded_edittext_background"-->
+<!--                                    android:backgroundTint="#DDF2FD"-->
+<!--                                    android:drawableStart="@drawable/ic_dob"-->
+<!--                                    android:clickable="true"-->
+<!--                                    android:focusable="false"-->
+<!--                                    android:fontFamily="@font/dmsans_reg"-->
+<!--                                    android:gravity="center"-->
+<!--                                    android:hint="Date of Birth (MM/DD/YY)"-->
+<!--                                    android:inputType="date"-->
+<!--                                    android:paddingHorizontal="20dp"-->
+<!--                                    android:textColor="#1A4D2E"-->
+<!--                                    android:textColorHint="#A6A6A6"-->
+<!--                                    android:textSize="15sp" />-->
 
                 <Button
                     android:id="@+id/registerButton"
