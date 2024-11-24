@@ -78,9 +78,9 @@
             app:layout_constraintTop_toBottomOf="@+id/productDescription"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <!-- Red Remove Button -->
+        <!-- Add Button -->
         <ImageView
-            android:id="@+id/removeButton"
+            android:id="@+id/addToCartButton"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginBottom="8dp"
@@ -89,7 +89,8 @@
             app:layout_constraintWidth_percent="0.15"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            android:onClick="openCartActivity"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
