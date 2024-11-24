@@ -35,9 +35,8 @@ class LoginFragment : Fragment() {
         forgotPasswordButton = binding.findViewById(R.id.forgotBtn)
 
         signUpButton.setOnClickListener {
-            // Navigate to RegisterFragment when "Sign Up" is clicked
             parentFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, RegisterFragment())
+                .replace(R.id.fragment_container, SelectRoleFragment())
                 .addToBackStack(null) // Allows going back to LoginFragment
                 .commit()
         }

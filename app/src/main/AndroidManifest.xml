@@ -35,7 +35,7 @@
             android:name=".view.AddProductActivity"
             android:exported="false" />
         <activity
-            android:name=".view.SelectRoleActivity"
+            android:name=".view.SelectRoleFragment"
             android:exported="false" />
         <activity
             android:name=".view.RegisterActivity"

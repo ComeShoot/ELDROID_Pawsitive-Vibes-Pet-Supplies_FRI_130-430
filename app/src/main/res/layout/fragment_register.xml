@@ -47,7 +47,7 @@
             tools:ignore="MissingConstraints" />
 
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/roleTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/dmsans_reg"
