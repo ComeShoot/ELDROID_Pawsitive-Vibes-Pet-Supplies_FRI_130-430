@@ -200,7 +200,7 @@ Tamiao, Compostela, Cebu, Visayas, 6003"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:scaleType="centerCrop"
-                                    android:src="@drawable/ic_person" />
+                                    android:src="@drawable/eye_drops" />
                             </androidx.cardview.widget.CardView>
 
                             <LinearLayout
@@ -214,7 +214,7 @@ Tamiao, Compostela, Cebu, Visayas, 6003"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/poppins_reg"
-                                    android:text="Product Title"
+                                    android:text="Eye Drops"
                                     android:textColor="#164863"
                                     android:textStyle="bold" />
 
@@ -223,7 +223,7 @@ Tamiao, Compostela, Cebu, Visayas, 6003"
                                     android:layout_width="180dp"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/poppins_reg"
-                                    android:text="@string/woof"
+                                    android:text="Treats Eye Infection"
                                     android:textColor="#1A4D2E"
                                     android:textSize="10sp" />
 
@@ -232,7 +232,7 @@ Tamiao, Compostela, Cebu, Visayas, 6003"
                                     android:layout_width="180dp"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/poppins_reg"
-                                    android:text="₱99.00"
+                                    android:text="₱1368.59"
                                     android:textColor="#D0A642"
                                     android:textSize="15sp" />
                             </LinearLayout>
