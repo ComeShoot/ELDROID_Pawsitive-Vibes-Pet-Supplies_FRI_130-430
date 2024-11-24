@@ -10,5 +10,6 @@ data class Customer(
     val cust_email: String,
     val cust_password: String,
     val cust_phone: String,
-    val cust_address: String
+    val cust_address: String,
+    val user_role: String
 )
