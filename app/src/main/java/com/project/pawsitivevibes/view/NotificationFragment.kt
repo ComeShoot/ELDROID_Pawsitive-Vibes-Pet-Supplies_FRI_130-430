@@ -7,10 +7,15 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.project.pawsitivevibes.R
+import com.project.pawsitivevibes.adapter.NotificationAdapter
+import com.project.pawsitivevibes.viewmodel.NotificationViewModel
 
 class NotificationFragment : Fragment() {
-
+    private val viewModel: NotificationViewModel by viewModels()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -22,16 +27,12 @@ class NotificationFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Set up notification item data
-        val itemImage = view.findViewById<ImageView>(R.id.itemImage)
-        val itemTitle = view.findViewById<TextView>(R.id.itemTitle)
-        val itemMessage = view.findViewById<TextView>(R.id.itemMessage)
-        val itemTime = view.findViewById<TextView>(R.id.itemTime)
+        val recyclerView: RecyclerView = view.findViewById(R.id.recyclerViewNotifications)
 
-        // Set data for the notification
-        itemImage.setImageResource(R.drawable.ic_product)
-        itemTitle.text = "Olive Shampoo"
-        itemMessage.text = "Parcel has departed from sorting facility"
-        itemTime.text = "6:45 PM"
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
+        viewModel.notifications.observe(viewLifecycleOwner) { notifications ->
+            recyclerView.adapter = NotificationAdapter(notifications)
+        }
     }
 }
