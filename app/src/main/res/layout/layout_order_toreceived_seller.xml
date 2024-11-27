@@ -12,215 +12,310 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="230dp">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="240dp"
-            android:layout_margin="10dp"
-            android:background="@drawable/bg_greencard"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingConstraints">
-
-            <LinearLayout
-                android:id="@+id/linearLayout11"
-                android:layout_marginBottom="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_alignParentTop="true"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:layout_marginStart="20dp"
-                    app:cardCornerRadius="50dp">
-
-                    <ImageView
-                        android:id="@+id/profilePic"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/ic_person" />
-                </androidx.cardview.widget.CardView>
-
-                <TextView
-                    android:id="@+id/merchantStore"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="1dp"
-                    android:fontFamily="@font/dmsans_reg"
-                    android:text="Name"
-                    android:textColor="#164863"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="55dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="1dp"
-                    android:background="@drawable/preferred"
-                    android:fontFamily="@font/dmsans_reg"
-                    android:text="  Preferred"
-                    android:textColor="#FFFFFF"
-                    android:textSize="10sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="55dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginTop="1dp"
-                    android:fontFamily="@font/dmsans_reg"
-                    android:text="  To Receive"
-                    android:textColor="#164863"
-                    android:textSize="10sp"
-                    android:textStyle="bold" />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="155dp"
-                    android:background="@android:color/transparent"
-                    android:drawableStart="@drawable/ic_more"
-                    android:paddingStart="35dp"
-                    android:paddingEnd="5dp" />
-
-            </LinearLayout>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardView1"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="50dp"
-                app:cardCornerRadius="10dp">
-
-                <ImageView
-                    android:id="@+id/transactionProductImage"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/ic_person" />
-            </androidx.cardview.widget.CardView>
-
-            <TextView
-                android:id="@+id/productTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="130dp"
-                android:layout_marginTop="50dp"
-                android:fontFamily="@font/poppins_reg"
-                android:text="Product title"
-                android:textColor="#164863"
-                android:textSize="15sp" />
-
-            <TextView
-                android:id="@+id/productDescription"
-                android:layout_width="180dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="130dp"
-                android:layout_marginTop="70dp"
-                android:fontFamily="@font/poppins_reg"
-                android:text="Description"
-                android:textColor="#164863"
-                android:textSize="10sp" />
-
-            <TextView
-                android:id="@+id/productPrice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/productDescription"
-                android:layout_marginLeft="130dp"
-                android:layout_marginTop="3dp"
-                android:text="Product Price"
-                android:textColor="#D0A642"
-                android:textSize="12sp" />
-
-            <TextView
-                android:id="@+id/itemQuantity"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/productDescription"
-                android:layout_marginLeft="25dp"
-                android:layout_marginTop="50dp"
-                android:fontFamily="@font/poppins_reg"
-                android:text="Item Quantity"
-                android:textColor="#164863"
-                android:textSize="10sp" />
-
-            <TextView
-                android:id="@+id/TextView4"
-                android:layout_width="60dp"
-                android:layout_height="20dp"
-                android:layout_below="@+id/productDescription"
-                android:layout_marginLeft="180dp"
-                android:layout_marginTop="50dp"
-                android:layout_toRightOf="@+id/itemQuantity"
-                android:fontFamily="@font/poppins_reg"
-                android:text="Total Order"
-                android:textColor="#164863"
-                android:textSize="10sp" />
-
-            <TextView
-                android:id="@+id/totalPrice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/productDescription"
-                android:layout_marginLeft="245dp"
-                android:layout_marginTop="50dp"
-                android:layout_toRightOf="@+id/itemQuantity"
-                android:fontFamily="@font/poppins_reg"
-                android:text="Price"
-                android:textColor="#D0A642"
-                android:textSize="10sp" />
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            app:cardCornerRadius="50dp"
+            app:layout_constraintBottom_toTopOf="@+id/top1"
+            app:layout_constraintEnd_toStartOf="@+id/sisde15"
+            app:layout_constraintStart_toStartOf="@+id/sisde14"
+            app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:layout_below="@+id/productDescription"
-                android:layout_marginLeft="13dp"
-                android:layout_marginTop="80dp"
-                android:outlineAmbientShadowColor="#4F6F52"
-                android:outlineSpotShadowColor="#4F6F52"
+                android:id="@+id/profilePic"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:scaleType="centerCrop"
-                android:src="@drawable/ic_truck" />
+                android:src="@drawable/ic_person" />
+        </androidx.cardview.widget.CardView>
 
-            <TextView
-                android:id="@+id/TextView6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/productDescription"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="80dp"
-                android:fontFamily="@font/poppins_reg"
-                android:text="Parcel has departed from sorting facility"
-                android:textColor="#164863"
-                android:textSize="10sp" />
+        <TextView
+            android:id="@+id/merchantStore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:fontFamily="@font/dmsans_reg"
+            android:text="Name"
+            android:textColor="#164863"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/top1"
+            app:layout_constraintEnd_toStartOf="@+id/textView2"
+            app:layout_constraintStart_toStartOf="@+id/sisde15"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="55dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/preferred"
+            android:fontFamily="@font/dmsans_reg"
+            android:text="  Preferred"
+            android:textColor="#FFFFFF"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/top1"
+            app:layout_constraintEnd_toStartOf="@+id/sisde09"
+            app:layout_constraintStart_toStartOf="@+id/sisde16"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="55dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:fontFamily="@font/dmsans_reg"
+            android:text="  To Receive"
+            android:textColor="#164863"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/top1"
+            app:layout_constraintEnd_toStartOf="@+id/sisde1"
+            app:layout_constraintStart_toStartOf="@+id/sisde19"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView1"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/top3"
+
+            app:layout_constraintEnd_toStartOf="@+id/sisde16"
+            app:layout_constraintStart_toStartOf="@+id/sisde14"
+            app:layout_constraintTop_toTopOf="@+id/top1">
+
+            <ImageView
+                android:id="@+id/transactionProductImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_person" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/productTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Product title"
+            android:textColor="#164863"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/sisde16"
+            app:layout_constraintTop_toTopOf="@+id/top1" />
+
+        <TextView
+            android:id="@+id/productDescription"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_reg"
+            android:text="Description"
+            android:textColor="#164863"
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="@+id/sisde16"
+            app:layout_constraintTop_toBottomOf="@+id/productTitle" />
+
+        <TextView
+            android:id="@+id/productPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/productDescription"
+            android:text="Product Price"
+            android:textColor="#D0A642"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/sisde16"
+            app:layout_constraintTop_toBottomOf="@+id/productDescription" />
+
+        <TextView
+            android:id="@+id/itemQuantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/productDescription"
+            android:fontFamily="@font/poppins_reg"
+            android:text="1"
+            android:textColor="#164863"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/top8"
+            app:layout_constraintEnd_toStartOf="@+id/sisde15"
+            app:layout_constraintHorizontal_bias="0.312"
+            app:layout_constraintStart_toStartOf="@+id/sisde14"
+            app:layout_constraintTop_toTopOf="@+id/top3"
+            app:layout_constraintVertical_bias="0.526" />
+
+        <TextView
+            android:id="@+id/item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/productDescription"
+            android:fontFamily="@font/poppins_reg"
+            android:text="Item"
+            android:textColor="#164863"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/top8"
+            app:layout_constraintEnd_toStartOf="@+id/sisde15"
+            app:layout_constraintHorizontal_bias="0.272"
+            app:layout_constraintStart_toEndOf="@+id/itemQuantity"
+            app:layout_constraintTop_toTopOf="@+id/top3"
+            app:layout_constraintVertical_bias="0.526" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/top3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="126dp" />
+
+        <TextView
+            android:id="@+id/TextView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/productDescription"
+            android:layout_toRightOf="@+id/itemQuantity"
+            android:fontFamily="@font/poppins_reg"
+            android:text="Order Total"
+            android:textColor="#164863"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/top8"
+            app:layout_constraintEnd_toStartOf="@+id/sisde11"
+            app:layout_constraintTop_toTopOf="@+id/top3" />
 
 
-            <TextView
-                android:id="@+id/destinationDelivery"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/productDescription"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="100dp"
-                android:fontFamily="@font/poppins_reg"
-                android:text="Delivery to"
-                android:textColor="#164863"
-                android:textSize="10sp" />
+        <TextView
+            android:id="@+id/totalPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/productDescription"
+            android:layout_toRightOf="@+id/itemQuantity"
+            android:fontFamily="@font/poppins_reg"
+            android:text="Price"
+            android:textColor="#D0A642"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/top8"
+            app:layout_constraintEnd_toStartOf="@+id/sisde1"
+            app:layout_constraintStart_toStartOf="@+id/sisde11"
+            app:layout_constraintTop_toTopOf="@+id/top3" />
 
-        </RelativeLayout>
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_below="@+id/productDescription"
+            android:layout_marginStart="8dp"
+            android:outlineAmbientShadowColor="#4F6F52"
+            android:outlineSpotShadowColor="#4F6F52"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_truck"
+            app:layout_constraintStart_toStartOf="@+id/sisde14"
+            app:layout_constraintTop_toTopOf="@+id/top8" />
+
+        <TextView
+            android:id="@+id/TextView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/productDescription"
+            android:layout_marginStart="4dp"
+            android:fontFamily="@font/poppins_reg"
+            android:text="Parcel has departed from sorting facility"
+            android:textColor="#164863"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toTopOf="@+id/top8" />
+
+        <TextView
+            android:id="@+id/destinationDelivery"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/productDescription"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/poppins_reg"
+            android:text="Delivery to"
+            android:textColor="#164863"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/sisde14"
+            app:layout_constraintTop_toBottomOf="@+id/TextView6" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/sisde14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.02" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/sisde15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.15" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/sisde16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.30" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/sisde09"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.45" />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/sisde1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.95" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/sisde11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.85" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/sisde12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.85" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/sisde19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.75" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/top1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.2" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/top8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="161dp" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

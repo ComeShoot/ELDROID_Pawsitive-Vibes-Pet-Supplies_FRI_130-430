@@ -1,6 +1,7 @@
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
@@ -12,13 +13,13 @@
         android:layout_height="wrap_content"
         android:padding="12dp">
 
-        <!-- Vertical Guideline for consistent margins -->
+        <!-- Horizontal Guideline for spacing -->
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/verticalGuideline"
+            android:id="@+id/horizontalGuide"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_begin="198dp" />
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.5" />
 
         <!-- Product Image -->
         <ImageView
@@ -26,25 +27,26 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:scaleType="centerInside"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/verticalGuideline"
-            app:layout_constraintWidth_percent="0.4"
+            android:src="@drawable/ic_addimage"
             app:layout_constraintDimensionRatio="1:1"
-            android:src="@drawable/ic_addimage" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.6" />
 
         <!-- Quantity Text -->
         <TextView
             android:id="@+id/productQuantity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="4dp"
             android:fontFamily="@font/poppins_reg"
             android:text="x45"
             android:textColor="#8C8C8C"
             android:textSize="12sp"
-            app:layout_constraintTop_toTopOf="@+id/productImage"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintBottom_toTopOf="@+id/top1"
+            app:layout_constraintEnd_toStartOf="@+id/side3"
+            app:layout_constraintStart_toStartOf="@+id/side2"
+            app:layout_constraintTop_toTopOf="@+id/productImage" />
 
         <!-- Product Title -->
         <TextView
@@ -56,9 +58,9 @@
             android:text="Olive Shampoo"
             android:textColor="#164863"
             android:textSize="14sp"
-            app:layout_constraintTop_toTopOf="@+id/productImage"
-            app:layout_constraintStart_toEndOf="@+id/productImage"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toStartOf="@+id/side2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/productImage" />
 
         <!-- Product Description -->
         <TextView
@@ -69,11 +71,15 @@
             android:text="For Dogs and Cats"
             android:textColor="#8C8C8C"
             android:textSize="12sp"
-            app:layout_constraintTop_toBottomOf="@+id/productTitle"
-            app:layout_constraintStart_toStartOf="@+id/productTitle"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toStartOf="@+id/side2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/productTitle" />
 
         <!-- Product Price -->
+
+        <!-- Add Button -->
+
+
         <TextView
             android:id="@+id/productPrice"
             android:layout_width="wrap_content"
@@ -82,34 +88,99 @@
             android:text="₱500"
             android:textColor="#D0A642"
             android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/side1"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/productDescription"
-            app:layout_constraintStart_toStartOf="@+id/productDescription" />
+            app:layout_constraintVertical_bias="1.0" />
 
-        <!-- Remove Button -->
-        <ImageView
-            android:id="@+id/removeButton"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="4dp"
-            android:src="@drawable/ic_removes"
-            android:contentDescription="Remove Button"
-            app:layout_constraintWidth_percent="0.12"
-            app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/moreOptionsButton" />
-
-        <!-- More Options Button -->
-        <ImageView
+        <ImageButton
             android:id="@+id/moreOptionsButton"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="4dp"
-            android:src="@drawable/ic_mores"
+            android:background="@drawable/transparent"
             android:contentDescription="More Options"
-            app:layout_constraintWidth_percent="0.12"
-            app:layout_constraintDimensionRatio="1:1"
+            android:onClick="editProduct"
+            android:src="@drawable/ic_mores"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/productDescription"
+            app:layout_constraintTop_toTopOf="@+id/top9"
+            app:layout_constraintVertical_bias="1.0"
+            app:layout_constraintWidth_percent="0.12" />
+
+
+        <ImageButton
+            android:id="@+id/removeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="4dp"
+            android:background="@drawable/transparent"
+            android:contentDescription="Remove Button"
+            android:onClick="deleteProduct"
+            android:src="@drawable/ic_removes"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@id/moreOptionsButton"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/productPrice"
+            app:layout_constraintTop_toTopOf="@+id/top9"
+            app:layout_constraintVertical_bias="1.0"
+            app:layout_constraintWidth_percent="0.12" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/top1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.1" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/top2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".55" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/top9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".70" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/side1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.15" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/side5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.05" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/side2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.85" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/side3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".95" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
