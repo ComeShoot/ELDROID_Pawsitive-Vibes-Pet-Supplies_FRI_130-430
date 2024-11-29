@@ -17,10 +17,12 @@ import com.project.pawsitivevibes.R
 import com.project.pawsitivevibes.model.UserLogin
 import com.project.pawsitivevibes.viewmodel.AuthViewModel
 import com.project.pawsitivevibes.view.MainActivity  // Import MainActivity
+import com.project.pawsitivevibes.viewmodel.SharedLoginViewModel
 
 class LoginFragment : Fragment() {
 
     private val authViewModel: AuthViewModel by activityViewModels()
+    private val sharedLoginViewModel: SharedLoginViewModel by activityViewModels()  // Get the shared ViewModel
 
     private lateinit var emailEditText: EditText
     private lateinit var passwordEditText: EditText
@@ -70,13 +72,16 @@ class LoginFragment : Fragment() {
             Toast.makeText(requireContext(), status, Toast.LENGTH_SHORT).show()
         })
 
-        // Observe Login Success and navigate to MainActivity
+        // Inside LoginFragment, observe login success and set user role
         authViewModel.loginSuccess.observe(viewLifecycleOwner, Observer { success ->
             if (success) {
-                // If login is successful, navigate to MainActivity
+                val userRole = authViewModel.userRole.value // Get the role from the AuthViewModel
+                sharedLoginViewModel.setUserRole(userRole!!) // Set the role in SharedLoginViewModel
+
+                // Navigate to MainActivity
                 val intent = Intent(requireContext(), MainActivity::class.java)
                 startActivity(intent)
-                activity?.finish() // Close LoginActivity or LoginFragment to prevent going back to the login screen
+                activity?.finish() // Close LoginFragment or LoginActivity
             }
         })
 

@@ -1,5 +1,6 @@
 package com.project.pawsitivevibes.repository
 
+import com.project.pawsitivevibes.model.Seller
 import com.project.pawsitivevibes.model.User
 import com.project.pawsitivevibes.model.UserLogin
 import com.project.pawsitivevibes.network.ApiService
@@ -9,9 +10,14 @@ class UserRepository {
 
     private val apiService = ApiService.create()
 
-    // Register a user
-    suspend fun registerUser(user: User): Response<RegisterResponse> {
-        return apiService.registerUser(user)
+    // Customer registration
+    suspend fun registerCustomer(user: User): Response<RegisterResponse> {
+        return apiService.registerCustomer(user)
+    }
+
+    // Seller registration
+    suspend fun registerSeller(user: Seller): Response<RegisterResponse> {
+        return apiService.registerSeller(user)
     }
 
     // Login a user
