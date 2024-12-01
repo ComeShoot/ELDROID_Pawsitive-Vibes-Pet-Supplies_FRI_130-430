@@ -34,9 +34,9 @@ class TransactionAdapter(private val transactions: List<TransactionItem>) :
         holder.productImage.setImageResource(transaction.imageResId)
         holder.merchantName.text = transaction.merchantName
         holder.productName.text = transaction.productName
-        holder.productQuantity.text = transaction.productQuantity
+        holder.productQuantity.text = transaction.productQuantity.toString()
         holder.productDescription.text = transaction.productDescription
-        holder.totalPrice.text = transaction.totalPrice
+        holder.totalPrice.text = transaction.totalPrice.toString()
         holder.orderStatusButton.text = transaction.orderStatus
     }
 

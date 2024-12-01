@@ -1,5 +1,6 @@
 package com.project.pawsitivevibes.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -16,6 +17,7 @@ import com.project.pawsitivevibes.model.User
 import com.project.pawsitivevibes.viewmodel.AuthViewModel
 import com.project.pawsitivevibes.viewmodel.SharedViewModel
 import android.util.Log
+import com.project.pawsitivevibes.model.Seller
 
 
 class RegisterFragment : Fragment() {
@@ -71,20 +73,32 @@ class RegisterFragment : Fragment() {
             val phoneNumber = phoneEditText.text.toString()
             val location = locationEditText.text.toString()
 
+            if (name.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty() && phoneNumber.isNotEmpty()) {
+                val role = sharedViewModel.selectedRole.value ?: "Customer"
 
-            if (email.isNotEmpty() && password.isNotEmpty()) {
-                // Get the selected role directly from the SharedViewModel
-                val role = sharedViewModel.selectedRole.value ?: "Unknown Role"
-
-                // Create a user object with the email, password, and role
-                val user = User(name, email, password, phoneNumber, location, role)
-                Log.d("RegisterFragment", "Registering user: $user")
-                // Register the user with the selected role
-                authViewModel.registerUser(user)
+                // Create the user object with the selected role
+                if (role == "Seller") {
+                    val seller = Seller(name, email, password, phoneNumber, location, role)
+                    authViewModel.registerSeller(seller)  // Call the registerSeller method
+                } else {
+                    val user = User(name, email, password, phoneNumber, location, role)
+                    authViewModel.registerCustomer(user)  // Call the registerCustomer method
+                }
             } else {
-                Toast.makeText(context, "Please enter both email and password", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "All fields are required!", Toast.LENGTH_SHORT).show()
             }
         }
+
+
+        // Inside your Fragment's observer
+        authViewModel.registrationSuccess.observe(viewLifecycleOwner, Observer { isSuccess ->
+            if (isSuccess) {
+                // Registration was successful, navigate to LoginActivity
+                val intent = Intent(requireContext(), LoginActivity::class.java)
+                startActivity(intent)
+                requireActivity().finish()  // Close the current Activity
+            }
+        })
 
         return binding
     }
