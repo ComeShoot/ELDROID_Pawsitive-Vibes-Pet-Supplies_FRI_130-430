@@ -100,12 +100,12 @@
                         android:background="@drawable/bg_btnseetings"
                         android:backgroundTint="@color/btnpmain"
                         android:drawableLeft="@drawable/ic_exit"
-                        android:paddingHorizontal="65dp"
-                        android:textAllCaps="false"
                         android:fontFamily="@font/dmsans_reg"
-                        android:textStyle="bold"
+                        android:paddingHorizontal="65dp"
                         android:text="Sign Out"
-                        android:textColor="#ffffff" />
+                        android:textAllCaps="false"
+                        android:textColor="#ffffff"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
             </RelativeLayout>

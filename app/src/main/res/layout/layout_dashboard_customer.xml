@@ -10,8 +10,15 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="15dp"
         android:padding="12dp">
+
+        <!-- Horizontal Guideline for spacing -->
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/horizontalGuide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.5" />
 
         <!-- Product Image -->
         <ImageView
@@ -83,14 +90,14 @@
             android:id="@+id/addToCartButton"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            android:contentDescription="Remove Button"
             android:src="@drawable/ic_adds"
+            android:contentDescription="Add to Cart"
             app:layout_constraintWidth_percent="0.15"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:onClick="openCartActivity"/>
-
+            android:onClick="openCartActivity" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
