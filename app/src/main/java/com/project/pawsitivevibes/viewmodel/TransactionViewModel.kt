@@ -21,18 +21,18 @@ class TransactionViewModel : ViewModel() {
                 imageResId = R.drawable.eye_drops, // Replace with actual product image drawable
                 merchantName = "Pet Supplies Co.",
                 productName = "Olive Shampoo",
-                productQuantity = "1x",
+                productQuantity = 1,
                 productDescription = "For Dogs and Cats",
-                totalPrice = "₱500.00",
+                totalPrice = 500,
                 orderStatus = "Order Received"
             ),
             TransactionItem(
                 imageResId = R.drawable.magic_milk, // Replace with actual product image drawable
                 merchantName = "Animal Care",
                 productName = "Premium Dog Food",
-                productQuantity = "3x",
+                productQuantity = 3,
                 productDescription = "Nutritious and healthy",
-                totalPrice = "₱1,200.00",
+                totalPrice = 1200,
                 orderStatus = "Delivered"
             )
         )

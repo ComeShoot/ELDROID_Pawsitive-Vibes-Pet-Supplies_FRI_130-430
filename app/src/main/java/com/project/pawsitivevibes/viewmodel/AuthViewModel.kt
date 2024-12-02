@@ -2,6 +2,7 @@ package com.project.pawsitivevibes.viewmodel
 
 import android.app.Application
 import android.content.Intent
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -19,6 +20,7 @@ import retrofit2.Response
 class AuthViewModel(application: Application) : AndroidViewModel(application) {
 
     private val userRepository = UserRepository()
+
 
     // LiveData to hold registration status message
     private val _registerStatus = MutableLiveData<String>()
@@ -83,13 +85,14 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
     fun loginUser(user: UserLogin) {
         viewModelScope.launch {
             try {
-                val response: Response<LoginResponse> = userRepository.loginUser(user)
+                val response = userRepository.loginUser(user)
                 if (response.isSuccessful) {
-                    val userRole = response.body()?.role // Assume the role is returned in the response
-                    _loginSuccess.value = true
-                    _userRole.value = userRole // Set the user's role
-
-                    _loginStatus.value = "Login successful. Role: $userRole"
+                    response.body()?.let {
+                        _userRole.value = it.role
+                        _loginSuccess.value = true
+                        _loginStatus.value = "Login successful as ${it.role}"
+                        Log.d("AuthViewModel", "User role set to: ${it.role}")
+                    }
                 } else {
                     _loginSuccess.value = false
                     _loginStatus.value = "Login failed: ${response.errorBody()?.string()}"
@@ -100,5 +103,9 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
             }
         }
     }
+
+
+
+
 
 }

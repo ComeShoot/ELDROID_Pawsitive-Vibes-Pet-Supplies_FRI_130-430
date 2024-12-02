@@ -22,7 +22,7 @@ class UserRepository {
 
     // Login a user
     suspend fun loginUser(user: UserLogin): Response<LoginResponse> {
-        return apiService.loginUser(user)  // Sending user object directly
+        return apiService.loginUser(user) // Expect role in response
     }
 
 }

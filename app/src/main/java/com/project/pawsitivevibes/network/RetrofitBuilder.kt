@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitBuilder {
 
-    private const val BASE_URL = "http://192.168.2.251:8000/"
+    private const val BASE_URL = "http://10.0.2.2:8000/"
 //    ^ host's address (PC / laptop)
 //    php -S 0.0.0.0:8000 -t public (use this to run on php)
 

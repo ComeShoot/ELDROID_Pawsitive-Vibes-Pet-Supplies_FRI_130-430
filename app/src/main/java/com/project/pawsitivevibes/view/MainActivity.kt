@@ -1,6 +1,7 @@
 package com.project.pawsitivevibes.view
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -16,10 +17,22 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Observe the user role and load the appropriate dashboard fragment
-        sharedLoginViewModel.userRole.observe(this, { role ->
-            loadFragmentBasedOnRole(role)
-        })
+        Log.d("MainActivity", "MainActivity onCreate called") // Log when MainActivity starts
+
+
+        // Check if role is passed through intent and set it in SharedLoginViewModel
+        intent.getStringExtra("userRole")?.let { role ->
+            sharedLoginViewModel.setUserRole(role)
+            loadFragmentBasedOnRole(role)  // Immediately load the fragment
+        }
+
+        sharedLoginViewModel.userRole.observe(this) { role ->
+            role?.let {
+                Log.d("MainActivity", "Observed user role: $role")
+                loadFragmentBasedOnRole(role)
+            } ?: Log.d("MainActivity", "Role is null, cannot load fragment")
+        }
+
 
         // Default fragments in both containers (can be set as a fallback or initial fragments)
         supportFragmentManager.beginTransaction()
@@ -33,7 +46,11 @@ class MainActivity : AppCompatActivity() {
             when (item.itemId) {
                 R.id.nav_home -> {
                     loadFragmentInContainerOne(HomeHeaderFragment())
-                    loadFragmentInContainerTwo(HomeFragment())
+                    sharedLoginViewModel.userRole.observe(this) { role ->
+                        role?.let {
+                            loadFragmentBasedOnRole(role)
+                        } ?: Log.d("MainActivity", "Role is null, cannot load fragment")
+                    }
                     true
                 }
                 R.id.nav_transaction -> {
@@ -56,21 +73,33 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    // Load the appropriate dashboard fragment based on user role
-    private fun loadFragmentBasedOnRole(role: String) {
-        val fragmentTransaction = supportFragmentManager.beginTransaction()
 
-        // Check the user role and load the corresponding fragment
+
+    // Load the appropriate dashboard fragment based on user role
+    // In MainActivity
+    private fun loadFragmentBasedOnRole(role: String) {
+        Log.d("MainActivity", "Loading fragment for role: $role")
+
+        val fragmentTransaction = supportFragmentManager.beginTransaction()
         val fragment: Fragment = if (role == "Seller") {
-            HomeSellerFragment() // Seller dashboard fragment
+            HomeSellerFragment()
         } else {
-            HomeFragment() // Default Customer dashboard fragment
+            HomeFragment()
         }
 
-        // Replace the fragment container with the selected fragment
-        fragmentTransaction.replace(R.id.fragment_container, fragment)
-        fragmentTransaction.commit()
+        val fragmentTag = fragment.javaClass.simpleName
+        val existingFragment = supportFragmentManager.findFragmentByTag(fragmentTag)
+
+        if (existingFragment == null) {
+            Log.d("MainActivity", "Replacing fragment with tag: $fragmentTag")
+            fragmentTransaction.replace(R.id.fragment_container_two, fragment, fragmentTag)
+            fragmentTransaction.commit()
+        } else {
+            Log.d("MainActivity", "Fragment already loaded, skipping transaction for $fragmentTag")
+        }
     }
+
+
 
     private fun loadFragmentInContainerOne(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
@@ -83,4 +112,5 @@ class MainActivity : AppCompatActivity() {
             .replace(R.id.fragment_container_two, fragment)
             .commit()
     }
+
 }

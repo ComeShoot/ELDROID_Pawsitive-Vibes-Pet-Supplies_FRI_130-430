@@ -72,18 +72,22 @@ class LoginFragment : Fragment() {
             Toast.makeText(requireContext(), status, Toast.LENGTH_SHORT).show()
         })
 
-        // Inside LoginFragment, observe login success and set user role
-        authViewModel.loginSuccess.observe(viewLifecycleOwner, Observer { success ->
+        // Inside LoginFragment
+        authViewModel.loginSuccess.observe(viewLifecycleOwner) { success ->
             if (success) {
-                val userRole = authViewModel.userRole.value // Get the role from the AuthViewModel
+                val userRole = authViewModel.userRole.value // Get the role from AuthViewModel
                 sharedLoginViewModel.setUserRole(userRole!!) // Set the role in SharedLoginViewModel
 
-                // Navigate to MainActivity
-                val intent = Intent(requireContext(), MainActivity::class.java)
+                // Pass the role to MainActivity through Intent
+                val intent = Intent(requireContext(), MainActivity::class.java).apply {
+                    putExtra("userRole", userRole)
+                }
                 startActivity(intent)
                 activity?.finish() // Close LoginFragment or LoginActivity
             }
-        })
+        }
+
+
 
         return binding
     }
