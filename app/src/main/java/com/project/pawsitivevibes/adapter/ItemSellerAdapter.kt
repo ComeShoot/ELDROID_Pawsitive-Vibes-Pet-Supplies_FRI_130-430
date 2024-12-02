@@ -1,17 +1,19 @@
 package com.project.pawsitivevibes.adapter
 
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.project.pawsitivevibes.R
 import com.project.pawsitivevibes.model.Item
 
-class ItemSellerAdapter(private val items: List<Item>, private val onAddToCartClick: (Item) -> Unit) :
-    RecyclerView.Adapter<ItemSellerAdapter.ItemViewHolder>() {
+class ItemSellerAdapter(
+    private val items: List<Item>,
+    private val onItemClick: (Item) -> Unit
+) : RecyclerView.Adapter<ItemSellerAdapter.ItemViewHolder>() {
 
     class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val title: TextView = view.findViewById(R.id.productTitle)
@@ -29,15 +31,28 @@ class ItemSellerAdapter(private val items: List<Item>, private val onAddToCartCl
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = items[position]
-        holder.itemImage.setImageResource(item.imageResId)
-        holder.title.text = item.title
+
+        // Bind data
+        holder.title.text = item.name
         holder.description.text = item.description
-        holder.itemPrice.text = item.price
-        holder.itemQuantity.text = item.quantity
+        holder.itemPrice.text = "₱${item.price}"
+        holder.itemQuantity.text = "x${item.quantity}"
 
+        // Construct the full URL for the image
+        val imageUrl = "http://10.0.2.2:8000/${item.imageUrl}"
 
+        // Load image with Glide
+        Glide.with(holder.itemImage.context)
+            .load(imageUrl) // Use the full URL here
+            .placeholder(R.drawable.profile) // Fallback image while loading
+            .into(holder.itemImage)
+
+        // Handle item click
+        holder.itemView.setOnClickListener { onItemClick(item) }
     }
+
 
     override fun getItemCount(): Int = items.size
 }
+
 

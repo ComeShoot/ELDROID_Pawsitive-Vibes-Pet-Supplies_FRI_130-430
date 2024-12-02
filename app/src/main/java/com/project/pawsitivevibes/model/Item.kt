@@ -3,9 +3,10 @@ package com.project.pawsitivevibes.model
 import java.io.Serializable
 
 data class Item(
-    val title: String,
+    val id: Int,
+    val name: String,
     val description: String,
-    val imageResId: Int, // Drawable resource ID for images
-    val price: String,
-    val quantity: String,
-) : Serializable
+    val price: Double,
+    val quantity: Int,
+    val imageUrl: String // If your API returns URLs for product images
+)

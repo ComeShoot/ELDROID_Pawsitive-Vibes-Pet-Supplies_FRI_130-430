@@ -32,6 +32,12 @@ class AddProductActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_product)
+        // Initialize ViewModel with the correct factory
+        val repository = ProductRepository(ApiService.create())  // Create the repository
+        val factory =
+            ViewModelFactory(repository)  // Create the factory with the repository
+        viewModel =
+            ViewModelProvider(this, factory)[AddProductViewModel::class.java]  // Correct ViewModelProvider usage
 
         // Check for permission
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
@@ -45,12 +51,7 @@ class AddProductActivity : AppCompatActivity() {
             setupListeners()  // Set up listeners if permission is already granted
         }
 
-        // Initialize ViewModel with the correct factory
-        val repository = ProductRepository(ApiService.create())  // Create the repository
-        val factory =
-            ViewModelFactory(repository)  // Create the factory with the repository
-        viewModel =
-            ViewModelProvider(this, factory)[AddProductViewModel::class.java]  // Correct ViewModelProvider usage
+
 
         findViewById<ImageButton>(R.id.add_photo).setOnClickListener {
             // Handle image picker logic here

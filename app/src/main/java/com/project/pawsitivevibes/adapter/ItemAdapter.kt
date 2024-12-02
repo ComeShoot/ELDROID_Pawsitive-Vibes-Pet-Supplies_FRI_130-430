@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.project.pawsitivevibes.R
 import com.project.pawsitivevibes.model.Item
 
@@ -30,16 +31,17 @@ class ItemAdapter(private val items: List<Item>, private val onAddToCartClick: (
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = items[position]
-        holder.itemImage.setImageResource(item.imageResId)
-        holder.title.text = item.title
-        holder.description.text = item.description
-        holder.itemPrice.text = item.price
-        holder.itemQuantity.text = item.quantity
+        Glide.with(holder.itemView.context)
+            .load(item.imageUrl)
+            .placeholder(R.drawable.profile) // Replace with your placeholder
+            .error(R.drawable.profile) // Replace with your error image
+            .into(holder.itemImage)
 
-        // Set onClickListener for the addToCartButton
-        holder.addToCartButton.setOnClickListener {
-            onAddToCartClick(item) // Pass the item clicked to the onClick handler
-        }
+        holder.title.text = item.name
+        holder.description.text = item.description
+        holder.itemPrice.text = item.price.toString()
+        holder.itemQuantity.text = item.quantity.toString()
+
     }
 
     override fun getItemCount(): Int = items.size
