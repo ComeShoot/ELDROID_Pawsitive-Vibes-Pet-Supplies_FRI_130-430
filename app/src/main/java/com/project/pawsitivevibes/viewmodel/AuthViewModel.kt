@@ -1,6 +1,7 @@
 package com.project.pawsitivevibes.viewmodel
 
 import android.app.Application
+import android.content.Context
 import android.content.Intent
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
@@ -88,6 +89,9 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
                 val response = userRepository.loginUser(user)
                 if (response.isSuccessful) {
                     response.body()?.let {
+                        // Save token to SharedPreferences
+                        saveTokenToSharedPreferences(it.token)
+
                         _userRole.value = it.role
                         _loginSuccess.value = true
                         _loginStatus.value = "Login successful as ${it.role}"
@@ -101,6 +105,17 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
                 _loginSuccess.value = false
                 _loginStatus.value = "Error: ${e.message}"
             }
+        }
+    }
+
+    // Save the token to SharedPreferences
+    private fun saveTokenToSharedPreferences(token: String?) {
+        if (token != null) {
+            val sharedPreferences = getApplication<Application>().getSharedPreferences("AppPrefs", Context.MODE_PRIVATE)
+            val editor = sharedPreferences.edit()
+            editor.putString("auth_token", "Bearer $token")  // Store token with "Bearer " prefix
+            editor.apply()
+            Log.d("AuthViewModel", "Token saved to SharedPreferences")
         }
     }
 

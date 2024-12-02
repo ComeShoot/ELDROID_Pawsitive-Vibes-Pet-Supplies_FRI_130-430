@@ -72,7 +72,6 @@ class LoginFragment : Fragment() {
             Toast.makeText(requireContext(), status, Toast.LENGTH_SHORT).show()
         })
 
-        // Inside LoginFragment
         authViewModel.loginSuccess.observe(viewLifecycleOwner) { success ->
             if (success) {
                 val userRole = authViewModel.userRole.value // Get the role from AuthViewModel
@@ -86,6 +85,7 @@ class LoginFragment : Fragment() {
                 activity?.finish() // Close LoginFragment or LoginActivity
             }
         }
+
 
 
 
