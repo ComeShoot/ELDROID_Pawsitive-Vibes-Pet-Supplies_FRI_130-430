@@ -89,13 +89,18 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
                 val response = userRepository.loginUser(user)
                 if (response.isSuccessful) {
                     response.body()?.let {
-                        // Save token to SharedPreferences
-                        saveTokenToSharedPreferences(it.token)
+                        // Get token and seller_id from the response (assuming your API returns both)
+                        val token = it.token
+                        val sellerId = it.seller_id // Ensure your login response includes seller_id
+
+                        // Save token and seller_id to SharedPreferences
+                        saveTokenAndSellerIdToSharedPreferences(token, sellerId)
 
                         _userRole.value = it.role
                         _loginSuccess.value = true
                         _loginStatus.value = "Login successful as ${it.role}"
                         Log.d("AuthViewModel", "User role set to: ${it.role}")
+                        Log.d("AuthViewModel", "Seller Id: ${it.seller_id}")
                     }
                 } else {
                     _loginSuccess.value = false
@@ -108,14 +113,17 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    // Save the token to SharedPreferences
-    private fun saveTokenToSharedPreferences(token: String?) {
-        if (token != null) {
+    // Save the token and seller_id to SharedPreferences
+    private fun saveTokenAndSellerIdToSharedPreferences(token: String?, sellerId: String?) {
+        if (token != null && sellerId != null) {
             val sharedPreferences = getApplication<Application>().getSharedPreferences("AppPrefs", Context.MODE_PRIVATE)
             val editor = sharedPreferences.edit()
             editor.putString("auth_token", "Bearer $token")  // Store token with "Bearer " prefix
+            editor.putString("seller_id", sellerId)  // Save seller ID
             editor.apply()
-            Log.d("AuthViewModel", "Token saved to SharedPreferences")
+            Log.d("AuthViewModel", "Token and seller_id saved to SharedPreferences")
+        } else {
+            Log.e("AuthViewModel", "Failed to save token or seller_id: One or both are null")
         }
     }
 
