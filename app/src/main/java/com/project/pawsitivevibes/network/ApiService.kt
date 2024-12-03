@@ -3,6 +3,7 @@ package com.project.pawsitivevibes.network
 import com.project.pawsitivevibes.model.ForgotPasswordRequest
 import com.project.pawsitivevibes.model.Product
 import com.project.pawsitivevibes.model.Seller
+import com.project.pawsitivevibes.model.UpdateProductRequest
 import com.project.pawsitivevibes.model.User
 import com.project.pawsitivevibes.model.UserLogin
 import com.project.pawsitivevibes.model.VerifyEmailRequest
@@ -17,6 +18,7 @@ import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.Headers
 import retrofit2.http.Multipart
+import retrofit2.http.PATCH
 import retrofit2.http.POST
 import retrofit2.http.Part
 import retrofit2.http.Path
@@ -63,6 +65,15 @@ interface ApiService {
         @Header("Authorization") authToken: String,  // Add authorization header
         @Path("seller_id") sellerId: String
     ): Response<List<Product>>
+
+    @PATCH("api/products/update-product/{id}")
+    @Headers("Accept: application/json")
+    suspend fun updateProduct(
+        @Header("Authorization") authToken: String,
+        @Path("id") productId: Int,
+        @Body updatedProduct: UpdateProductRequest
+    ): Response<Product>
+
 
 
     companion object {

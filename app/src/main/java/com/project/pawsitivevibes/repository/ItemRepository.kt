@@ -1,6 +1,7 @@
 package com.project.pawsitivevibes.repository
 
 import com.project.pawsitivevibes.model.Product
+import com.project.pawsitivevibes.model.UpdateProductRequest
 import com.project.pawsitivevibes.network.ApiService
 
 class ItemRepository(private val apiService: ApiService) {
@@ -13,4 +14,15 @@ class ItemRepository(private val apiService: ApiService) {
             throw Exception("Failed to fetch products: ${response.errorBody()?.string()}")
         }
     }
+
+    suspend fun updateProduct(authToken: String, productId: Int, updatedProduct: UpdateProductRequest) {
+        val response = apiService.updateProduct(authToken, productId, updatedProduct)
+        if (!response.isSuccessful) {
+            val errorMessage = response.errorBody()?.string() ?: "Unknown error"
+            throw Exception("Failed to update product: $errorMessage")
+        }
+    }
+
+
+
 }
