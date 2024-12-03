@@ -145,10 +145,10 @@
             android:padding="4dp"
             android:scrollbars="vertical"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout22"
             app:spanCount="2"
+            tools:layout_editor_absoluteX="8dp"
             tools:listitem="@layout/layout_dashboard_customer" />
 
 <!--        <com.google.android.material.floatingactionbutton.FloatingActionButton-->

@@ -54,11 +54,11 @@ class AddProductActivity : AppCompatActivity() {
         }
 
         // Increment and decrement buttons
-        findViewById<ImageButton>(R.id.button_increment).setOnClickListener {
+        findViewById<Button>(R.id.button_increment).setOnClickListener {
             viewModel.incrementQuantity()
         }
 
-        findViewById<ImageButton>(R.id.button_decrement).setOnClickListener {
+        findViewById<Button>(R.id.button_decrement).setOnClickListener {
             viewModel.decrementQuantity()
         }
 
@@ -76,6 +76,7 @@ class AddProductActivity : AppCompatActivity() {
         viewModel.uploadResult.observe(this) { result ->
             result.onSuccess {
                 Toast.makeText(this, "Product uploaded successfully!", Toast.LENGTH_SHORT).show()
+                finish()
             }.onFailure { exception ->
                 Toast.makeText(this, "Failed to upload product: ${exception.message}", Toast.LENGTH_SHORT).show()
                 Log.e("AddProductActivity", "Error uploading product", exception)
