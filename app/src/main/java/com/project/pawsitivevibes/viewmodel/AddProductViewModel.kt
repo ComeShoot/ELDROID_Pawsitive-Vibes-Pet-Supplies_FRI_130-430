@@ -14,10 +14,39 @@ class AddProductViewModel(private val repository: ProductRepository) : ViewModel
     private val _uploadResult = MutableLiveData<Result<Product>>()
     val uploadResult: LiveData<Result<Product>> = _uploadResult
 
-    fun uploadProduct(name: String, description: String, price: Double, quantity: Int, imageFile: File, authToken: String) {
+    private val _quantity = MutableLiveData(1) // Default quantity is 1
+    val quantity: LiveData<Int> = _quantity
+
+    fun incrementQuantity() {
+        val currentQuantity = _quantity.value ?: 1
+        _quantity.value = currentQuantity + 1
+    }
+
+    fun decrementQuantity() {
+        val currentQuantity = _quantity.value ?: 1
+        if (currentQuantity > 1) {
+            _quantity.value = currentQuantity - 1
+        }
+    }
+
+    fun uploadProduct(
+        name: String,
+        description: String,
+        price: Double,
+        imageFile: File,
+        authToken: String
+    ) {
+        val productQuantity = _quantity.value ?: 1
         viewModelScope.launch {
             try {
-                val response = repository.uploadProduct(name, description, price, quantity, imageFile, authToken)
+                val response = repository.uploadProduct(
+                    name,
+                    description,
+                    price,
+                    productQuantity,
+                    imageFile,
+                    authToken
+                )
                 if (response.isSuccessful) {
                     _uploadResult.postValue(Result.success(response.body()!!))
                 } else {
@@ -28,5 +57,4 @@ class AddProductViewModel(private val repository: ProductRepository) : ViewModel
             }
         }
     }
-
 }
