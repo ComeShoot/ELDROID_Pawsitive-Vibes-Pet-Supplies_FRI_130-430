@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -42,7 +43,9 @@ class HomeSellerFragment : Fragment() {
 
         recyclerView = view.findViewById(R.id.recyclerView)
         fab = view.findViewById(R.id.fabbtn)
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
+        recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
+
 
         fab.setOnClickListener {
             val intent = Intent(requireActivity(), AddProductActivity::class.java)
@@ -59,6 +62,7 @@ class HomeSellerFragment : Fragment() {
             Toast.makeText(requireContext(), "Authentication failed!", Toast.LENGTH_SHORT).show()
         }
 
+        // Observe the products LiveData
         viewModel.products.observe(viewLifecycleOwner) { products ->
             val adapter = ItemSellerAdapter(products.map {
                 Item(
@@ -70,22 +74,23 @@ class HomeSellerFragment : Fragment() {
                     quantity = it.prod_quantity
                 )
             }) { selectedItem ->
-                val intent = Intent(requireActivity(), EditProductActivity::class.java).apply {
-                    putExtra("product_id", selectedItem.id)
-                    putExtra("product_name", selectedItem.name)
-                    putExtra("product_description", selectedItem.description)
-                    putExtra("product_price", selectedItem.price)
-                    putExtra("product_quantity", selectedItem.quantity)
-                    putExtra("product_image", selectedItem.imageUrl)
-                }
+                // Navigate to EditProductActivity with the selected item
+                val intent = Intent(requireActivity(), EditProductActivity::class.java)
+                intent.putExtra("product_id", selectedItem.id)
+                intent.putExtra("product_name", selectedItem.name)
+                intent.putExtra("product_description", selectedItem.description)
+                intent.putExtra("product_price", selectedItem.price)
+                intent.putExtra("product_quantity", selectedItem.quantity)
+                intent.putExtra("product_image", selectedItem.imageUrl)
                 startActivity(intent)
             }
             recyclerView.adapter = adapter
         }
 
+
+        // Observe errors
         viewModel.error.observe(viewLifecycleOwner) { errorMessage ->
             Toast.makeText(requireContext(), errorMessage, Toast.LENGTH_SHORT).show()
         }
     }
 }
-

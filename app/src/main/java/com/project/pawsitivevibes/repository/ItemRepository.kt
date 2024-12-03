@@ -22,7 +22,4 @@ class ItemRepository(private val apiService: ApiService) {
             throw Exception("Failed to update product: $errorMessage")
         }
     }
-
-
-
 }

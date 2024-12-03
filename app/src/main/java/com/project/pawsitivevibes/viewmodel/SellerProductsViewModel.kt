@@ -57,7 +57,6 @@ class SellerProductsViewModel(application: Application, private val repository: 
                     price = price,
                     quantity = quantity
                 )
-
                 repository.updateProduct(authToken, productId, updatedProduct)
                 _updateResult.postValue(true)
             } catch (e: Exception) {
