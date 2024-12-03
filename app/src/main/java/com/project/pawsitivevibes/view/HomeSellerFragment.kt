@@ -37,12 +37,11 @@ class HomeSellerFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val repository = ItemRepository(ApiService.create())
-        val factory = ItemViewModelFactory(repository)
+        val factory = ItemViewModelFactory(requireActivity().application, repository)
         viewModel = ViewModelProvider(this, factory)[SellerProductsViewModel::class.java]
 
         recyclerView = view.findViewById(R.id.recyclerView)
         fab = view.findViewById(R.id.fabbtn)
-
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         fab.setOnClickListener {
@@ -60,26 +59,33 @@ class HomeSellerFragment : Fragment() {
             Toast.makeText(requireContext(), "Authentication failed!", Toast.LENGTH_SHORT).show()
         }
 
-        // Observe the products LiveData
         viewModel.products.observe(viewLifecycleOwner) { products ->
             val adapter = ItemSellerAdapter(products.map {
                 Item(
                     id = it.seller_id,
                     name = it.prod_name,
                     description = it.prod_description,
-                    imageUrl = it.prod_image, // Use the actual image URL
+                    imageUrl = it.prod_image,
                     price = it.prod_price,
                     quantity = it.prod_quantity
                 )
-            }) { item ->
-                Toast.makeText(requireContext(), "Clicked on: ${item.name}", Toast.LENGTH_SHORT).show()
+            }) { selectedItem ->
+                val intent = Intent(requireActivity(), EditProductActivity::class.java).apply {
+                    putExtra("product_id", selectedItem.id)
+                    putExtra("product_name", selectedItem.name)
+                    putExtra("product_description", selectedItem.description)
+                    putExtra("product_price", selectedItem.price)
+                    putExtra("product_quantity", selectedItem.quantity)
+                    putExtra("product_image", selectedItem.imageUrl)
+                }
+                startActivity(intent)
             }
             recyclerView.adapter = adapter
         }
 
-        // Observe errors
         viewModel.error.observe(viewLifecycleOwner) { errorMessage ->
             Toast.makeText(requireContext(), errorMessage, Toast.LENGTH_SHORT).show()
         }
     }
 }
+

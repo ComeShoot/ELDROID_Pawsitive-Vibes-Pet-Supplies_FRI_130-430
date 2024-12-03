@@ -17,40 +17,35 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        Log.d("MainActivity", "MainActivity onCreate called") // Log when MainActivity starts
-
+        Log.d("MainActivity", "MainActivity onCreate called")
 
         // Check if role is passed through intent and set it in SharedLoginViewModel
-        intent.getStringExtra("userRole")?.let { role ->
+        val roleFromIntent = intent.getStringExtra("userRole")
+        roleFromIntent?.let { role ->
+            Log.d("MainActivity", "Role passed from intent: $role")
             sharedLoginViewModel.setUserRole(role)
-            loadFragmentBasedOnRole(role)  // Immediately load the fragment
+            loadFragmentBasedOnRole(role)
         }
 
+        // Observe the role changes (used if role is updated after intent load)
         sharedLoginViewModel.userRole.observe(this) { role ->
             role?.let {
                 Log.d("MainActivity", "Observed user role: $role")
                 loadFragmentBasedOnRole(role)
-            } ?: Log.d("MainActivity", "Role is null, cannot load fragment")
+            }
         }
 
-
-        // Default fragments in both containers (can be set as a fallback or initial fragments)
+        // Default fragment for fragment_container_one
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container_one, HomeHeaderFragment())
-            .replace(R.id.fragment_container_two, HomeFragment())  // This can be the default Customer dashboard
             .commit()
 
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
-
         bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.nav_home -> {
                     loadFragmentInContainerOne(HomeHeaderFragment())
-                    sharedLoginViewModel.userRole.observe(this) { role ->
-                        role?.let {
-                            loadFragmentBasedOnRole(role)
-                        } ?: Log.d("MainActivity", "Role is null, cannot load fragment")
-                    }
+                    sharedLoginViewModel.userRole.value?.let { loadFragmentBasedOnRole(it) }
                     true
                 }
                 R.id.nav_transaction -> {
@@ -72,6 +67,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
 
 
 
