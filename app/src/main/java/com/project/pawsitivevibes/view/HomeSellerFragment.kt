@@ -1,5 +1,6 @@
 package com.project.pawsitivevibes.view
 
+import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -9,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -42,7 +44,9 @@ class HomeSellerFragment : Fragment() {
 
         recyclerView = view.findViewById(R.id.recyclerView)
         fab = view.findViewById(R.id.fabbtn)
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
+        recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
+
 
         fab.setOnClickListener {
             val intent = Intent(requireActivity(), AddProductActivity::class.java)
@@ -59,33 +63,46 @@ class HomeSellerFragment : Fragment() {
             Toast.makeText(requireContext(), "Authentication failed!", Toast.LENGTH_SHORT).show()
         }
 
+        // Observe the products LiveData
         viewModel.products.observe(viewLifecycleOwner) { products ->
             val adapter = ItemSellerAdapter(products.map {
                 Item(
-                    id = it.seller_id,
+                    id = it.prod_id,
                     name = it.prod_name,
                     description = it.prod_description,
                     imageUrl = it.prod_image,
                     price = it.prod_price,
                     quantity = it.prod_quantity
                 )
-            }) { selectedItem ->
-                val intent = Intent(requireActivity(), EditProductActivity::class.java).apply {
-                    putExtra("product_id", selectedItem.id)
-                    putExtra("product_name", selectedItem.name)
-                    putExtra("product_description", selectedItem.description)
-                    putExtra("product_price", selectedItem.price)
-                    putExtra("product_quantity", selectedItem.quantity)
-                    putExtra("product_image", selectedItem.imageUrl)
-                }
-                startActivity(intent)
-            }
+            },
+                onMoreOptionsClick = { selectedItem ->
+                    val intent = Intent(requireActivity(), EditProductActivity::class.java)
+                    intent.putExtra("product_id", selectedItem.id)
+                    intent.putExtra("product_name", selectedItem.name)
+                    intent.putExtra("product_description", selectedItem.description)
+                    intent.putExtra("product_price", selectedItem.price)
+                    intent.putExtra("product_quantity", selectedItem.quantity)
+                    intent.putExtra("product_image", selectedItem.imageUrl)
+                    startActivity(intent)
+                },
+                onDeleteClick = { selectedItem ->
+                    AlertDialog.Builder(requireContext())
+                        .setTitle("Confirm Delete")
+                        .setMessage("Are you sure you want to delete ${selectedItem.name}?")
+                        .setPositiveButton("Yes") { _, _ ->
+                            viewModel.deleteProduct(selectedItem.id)
+                        }
+                        .setNegativeButton("No", null)
+                        .show()
+                })
             recyclerView.adapter = adapter
         }
 
+
+
+        // Observe errors
         viewModel.error.observe(viewLifecycleOwner) { errorMessage ->
             Toast.makeText(requireContext(), errorMessage, Toast.LENGTH_SHORT).show()
         }
     }
 }
-

@@ -57,7 +57,6 @@ class SellerProductsViewModel(application: Application, private val repository: 
                     price = price,
                     quantity = quantity
                 )
-
                 repository.updateProduct(authToken, productId, updatedProduct)
                 _updateResult.postValue(true)
             } catch (e: Exception) {
@@ -66,6 +65,23 @@ class SellerProductsViewModel(application: Application, private val repository: 
             }
         }
     }
+    fun deleteProduct(productId: Int) {
+        viewModelScope.launch {
+            try {
+                val authToken = getAuthToken()
+                if (authToken == null) {
+                    _error.postValue("Authentication token is missing")
+                    return@launch
+                }
+
+                repository.deleteProduct(authToken, productId)
+                _products.value = _products.value?.filterNot { it.prod_id == productId }
+            } catch (e: Exception) {
+                _error.postValue("Error deleting product: ${e.message}")
+            }
+        }
+    }
+
 
 }
 

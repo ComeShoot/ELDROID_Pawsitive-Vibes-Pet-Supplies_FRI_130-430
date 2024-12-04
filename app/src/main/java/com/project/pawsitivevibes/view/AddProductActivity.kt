@@ -8,11 +8,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageButton
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -29,15 +25,15 @@ class AddProductActivity : AppCompatActivity() {
     private lateinit var viewModel: AddProductViewModel
     private var selectedImageFile: File? = null
     private val REQUEST_CODE_PERMISSION = 1001
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_product)
-        // Initialize ViewModel with the correct factory
-        val repository = ProductRepository(ApiService.create())  // Create the repository
-        val factory =
-            ViewModelFactory(repository)  // Create the factory with the repository
-        viewModel =
-            ViewModelProvider(this, factory)[AddProductViewModel::class.java]  // Correct ViewModelProvider usage
+
+        // Initialize ViewModel
+        val repository = ProductRepository(ApiService.create())
+        val factory = ViewModelFactory(repository)
+        viewModel = ViewModelProvider(this, factory)[AddProductViewModel::class.java]
 
         // Check for permission
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
@@ -48,87 +44,83 @@ class AddProductActivity : AppCompatActivity() {
                 REQUEST_CODE_PERMISSION
             )
         } else {
-            setupListeners()  // Set up listeners if permission is already granted
+            setupListeners()
         }
 
+        // Observe quantity changes
+        val quantityTextView = findViewById<TextView>(R.id.text_quantity)
+        viewModel.quantity.observe(this) { quantity ->
+            quantityTextView.text = quantity.toString()
+        }
 
+        // Increment and decrement buttons
+        findViewById<Button>(R.id.button_increment).setOnClickListener {
+            viewModel.incrementQuantity()
+        }
 
+        findViewById<Button>(R.id.button_decrement).setOnClickListener {
+            viewModel.decrementQuantity()
+        }
+
+        // Handle image selection
         findViewById<ImageButton>(R.id.add_photo).setOnClickListener {
-            // Handle image picker logic here
             pickImageFromGallery()
         }
 
+        // Handle product upload
         findViewById<Button>(R.id.addBtn).setOnClickListener {
             uploadProduct()
         }
 
-        // Observe the result of the upload operation
+        // Observe upload result
         viewModel.uploadResult.observe(this) { result ->
             result.onSuccess {
                 Toast.makeText(this, "Product uploaded successfully!", Toast.LENGTH_SHORT).show()
-            }.onFailure { exception ->
-                Toast.makeText(this, "Failed to upload product: ${exception.message}", Toast.LENGTH_SHORT).show()
-                Log.e("AddProductActivity", "Error uploading product", exception)
-            }
-        }
-
-    }
-
-    private fun setupListeners() {
-        findViewById<ImageButton>(R.id.add_photo).setOnClickListener {
-            // Handle image picker logic here
-            pickImageFromGallery()
-        }
-
-        findViewById<Button>(R.id.addBtn).setOnClickListener {
-            uploadProduct()
-        }
-        // Observe the result of the upload operation
-        viewModel.uploadResult.observe(this) { result ->
-            result.onSuccess {
-                Toast.makeText(this, "Product uploaded successfully!", Toast.LENGTH_SHORT).show()
+                finish()
             }.onFailure { exception ->
                 Toast.makeText(this, "Failed to upload product: ${exception.message}", Toast.LENGTH_SHORT).show()
                 Log.e("AddProductActivity", "Error uploading product", exception)
             }
         }
     }
-
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        when (requestCode) {
-            REQUEST_CODE_PERMISSION -> {
-                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    // Permission granted, proceed with the image picker
-                    setupListeners()
-                } else {
-                    // Permission denied, show a message
-                    Toast.makeText(this, "Permission denied to read storage", Toast.LENGTH_SHORT).show()
-                }
+        if (requestCode == REQUEST_CODE_PERMISSION) {
+            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                setupListeners()
+            } else {
+                Toast.makeText(this, "Permission denied to read storage", Toast.LENGTH_SHORT).show()
             }
         }
     }
 
+    private fun setupListeners() {
+        // Set up listeners for image picker and upload
+        findViewById<ImageButton>(R.id.add_photo).setOnClickListener {
+            pickImageFromGallery()
+        }
+
+        findViewById<Button>(R.id.addBtn).setOnClickListener {
+            uploadProduct()
+        }
+    }
 
     private fun uploadProduct() {
         val name = findViewById<EditText>(R.id.createPost).text.toString()
         val description = findViewById<EditText>(R.id.description).text.toString()
         val price = findViewById<EditText>(R.id.price).text.toString().toDoubleOrNull() ?: 0.0
-        val quantity = findViewById<TextView>(R.id.text_quantity).text.toString().toInt()
+        val quantity = viewModel.quantity.value ?: 1
         val sharedPreferences = getSharedPreferences("AppPrefs", Context.MODE_PRIVATE)
         val authToken = sharedPreferences.getString("auth_token", null)
-
-
 
         if (name.isEmpty() || description.isEmpty() || price == 0.0 || quantity == 0 || selectedImageFile == null) {
             Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show()
             return
         }
 
-        // Upload the product using the ViewModel
         if (authToken != null) {
-            viewModel.uploadProduct(name, description, price, quantity, selectedImageFile!!, authToken)
+            viewModel.uploadProduct(name, description, price, selectedImageFile!!, authToken)
         }
     }
 
@@ -143,12 +135,10 @@ class AddProductActivity : AppCompatActivity() {
         if (requestCode == 100 && resultCode == RESULT_OK) {
             val imageUri = data?.data
             imageUri?.let {
-                // Use the URI directly or get the real path if needed
-                selectedImageFile = File(getRealPathFromURI(it))  // Adjust as needed for scoped storage
+                selectedImageFile = File(getRealPathFromURI(it))
             }
         }
     }
-
 
     private fun getRealPathFromURI(uri: Uri): String? {
         val cursor = contentResolver.query(uri, null, null, null, null)
@@ -162,8 +152,6 @@ class AddProductActivity : AppCompatActivity() {
             }
             it.close()
         }
-        return null // Return null if the path could not be retrieved
+        return null
     }
-
-
 }
