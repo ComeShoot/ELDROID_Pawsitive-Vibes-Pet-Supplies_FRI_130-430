@@ -1,5 +1,6 @@
 package com.project.pawsitivevibes.network
 
+import com.project.pawsitivevibes.model.AllProduct
 import com.project.pawsitivevibes.model.ForgotPasswordRequest
 import com.project.pawsitivevibes.model.Product
 import com.project.pawsitivevibes.model.Seller
@@ -79,6 +80,9 @@ interface ApiService {
         @Header("Authorization") authToken: String,
         @Path("id") productId: Int
     ): Response<Unit>
+
+    @GET("api/products/all-products")
+    suspend fun getAllProducts(): List<AllProduct>
 
     companion object {
         fun create(): ApiService {
