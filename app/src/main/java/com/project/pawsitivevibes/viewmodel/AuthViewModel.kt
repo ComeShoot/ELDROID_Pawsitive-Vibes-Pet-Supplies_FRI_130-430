@@ -22,12 +22,10 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
 
     private val userRepository = UserRepository()
 
-
-    // LiveData to hold registration status message
+    // LiveData for registration and login status messages
     private val _registerStatus = MutableLiveData<String>()
     val registerStatus: LiveData<String> get() = _registerStatus
 
-    // LiveData to hold login status message
     private val _loginStatus = MutableLiveData<String>()
     val loginStatus: LiveData<String> get() = _loginStatus
 
@@ -39,7 +37,6 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
     val userRole: LiveData<String> get() = _userRole
 
     // Register a Customer
-    // In AuthViewModel
     private val _registrationSuccess = MutableLiveData<Boolean>()
     val registrationSuccess: LiveData<Boolean> get() = _registrationSuccess
 
@@ -48,8 +45,9 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
             try {
                 val response: Response<RegisterResponse> = userRepository.registerCustomer(user)
                 if (response.isSuccessful) {
+                    // Ensure RegisterResponse contains the appropriate fields (e.g., message)
                     _registerStatus.value = response.body()?.message ?: "Customer registration successful"
-                    _registrationSuccess.value = true // Notify success
+                    _registrationSuccess.value = true
                 } else {
                     _registerStatus.value = "Customer registration failed: ${response.errorBody()?.string()}"
                     _registrationSuccess.value = false
@@ -67,8 +65,9 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
             try {
                 val response: Response<RegisterResponse> = userRepository.registerSeller(seller)
                 if (response.isSuccessful) {
+                    // Ensure RegisterResponse contains the appropriate fields (e.g., message)
                     _registerStatus.value = response.body()?.message ?: "Seller registration successful"
-                    _registrationSuccess.value = true // Notify success
+                    _registrationSuccess.value = true
                 } else {
                     _registerStatus.value = "Seller registration failed: ${response.errorBody()?.string()}"
                     _registrationSuccess.value = false
@@ -80,21 +79,21 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-
-
-    // Inside AuthViewModel
+    // Login User
     fun loginUser(user: UserLogin) {
         viewModelScope.launch {
             try {
                 val response = userRepository.loginUser(user)
                 if (response.isSuccessful) {
                     response.body()?.let {
-                        // Get token and seller_id from the response (assuming your API returns both)
                         val token = it.token
-                        val sellerId = it.seller_id // Ensure your login response includes seller_id
+                        val sellerId = it.seller_id
+                        val custId = it.cust_id?.toInt()
 
-                        // Save token and seller_id to SharedPreferences
                         saveTokenAndSellerIdToSharedPreferences(token, sellerId)
+                        if (custId != null) {
+                            saveCustIdToPreferences(getApplication(), custId)
+                        }
 
                         _userRole.value = it.role
                         _loginSuccess.value = true
@@ -113,9 +112,9 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    // Save the token and seller_id to SharedPreferences
+    // Save token and seller_id to SharedPreferences
     private fun saveTokenAndSellerIdToSharedPreferences(token: String?, sellerId: String?) {
-        if (token != null && sellerId != null) {
+        if (!token.isNullOrEmpty() && !sellerId.isNullOrEmpty()) {
             val sharedPreferences = getApplication<Application>().getSharedPreferences("AppPrefs", Context.MODE_PRIVATE)
             val editor = sharedPreferences.edit()
             editor.putString("auth_token", "Bearer $token")  // Store token with "Bearer " prefix
@@ -127,8 +126,19 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
+    // Save the customer ID to SharedPreferences
+    fun saveCustIdToPreferences(context: Context, custId: Int) {
+        val sharedPreferences = context.getSharedPreferences("AppPrefs", Context.MODE_PRIVATE)
+        with(sharedPreferences.edit()) {
+            putInt("cust_id", custId)
+            apply()
+        }
+    }
 
-
-
-
+    // Retrieve customer ID from SharedPreferences
+    fun getCustIdFromPreferences(context: Context): Int {
+        val sharedPreferences = context.getSharedPreferences("AppPrefs", Context.MODE_PRIVATE)
+        return sharedPreferences.getInt("cust_id", -1)  // Default value -1 if not set
+    }
 }
+

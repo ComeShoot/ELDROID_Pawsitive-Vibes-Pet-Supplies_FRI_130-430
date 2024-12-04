@@ -1,6 +1,12 @@
 package com.project.pawsitivevibes.network
 
+import com.project.pawsitivevibes.model.AddToCartRequest
 import com.project.pawsitivevibes.model.AllProduct
+import com.project.pawsitivevibes.model.ApiResponse
+import com.project.pawsitivevibes.model.CartItemResponse
+import com.project.pawsitivevibes.model.CartItemsRequest
+import com.project.pawsitivevibes.model.CartItemsResponse
+import com.project.pawsitivevibes.model.CartResponse
 import com.project.pawsitivevibes.model.ForgotPasswordRequest
 import com.project.pawsitivevibes.model.Product
 import com.project.pawsitivevibes.model.Seller
@@ -16,6 +22,7 @@ import okhttp3.RequestBody
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.DELETE
+import retrofit2.http.Field
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.Headers
@@ -24,6 +31,7 @@ import retrofit2.http.PATCH
 import retrofit2.http.POST
 import retrofit2.http.Part
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface ApiService {
 
@@ -83,6 +91,12 @@ interface ApiService {
 
     @GET("api/products/all-products")
     suspend fun getAllProducts(): List<AllProduct>
+    @POST("api/cart/add-to-cart")
+    suspend fun addToCart(@Body request: AddToCartRequest): Response<CartItemResponse>
+
+    @GET("api/cart/get-cart-items/")
+    suspend fun getCartItems(@Query("cust_id") custId: Int): Response<CartItemsResponse>
+
 
     companion object {
         fun create(): ApiService {

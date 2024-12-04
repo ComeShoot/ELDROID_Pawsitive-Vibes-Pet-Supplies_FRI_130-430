@@ -31,10 +31,8 @@ class HomeFragment : Fragment() {
         val recyclerView: RecyclerView = view.findViewById(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        val adapter = ItemAdapter(mutableListOf()) { product ->
-            val intent = Intent(requireContext(), CartActivity::class.java)
-            intent.putExtra("productId", product.prodId)
-            startActivity(intent)
+        val adapter = ItemAdapter(mutableListOf()) { product, cartItemQuantity, cartItemPrice ->
+            viewModel.addToCart(product.prodId, cartItemQuantity, cartItemPrice)
         }
 
         recyclerView.adapter = adapter
@@ -42,9 +40,22 @@ class HomeFragment : Fragment() {
         viewModel.products.observe(viewLifecycleOwner) { products ->
             if (products != null) {
                 Log.d("HomeFragment", "Products received: $products")
-                adapter.updateData(products) // Add an `updateData` function to your adapter
+                adapter.updateData(products) // Passing a list of AllProduct
             }
         }
+
+        // Handle add to cart status
+        viewModel.addToCartStatus.observe(viewLifecycleOwner) { status ->
+            if (status) {
+                // Navigate to CartActivity after successful addition
+                val intent = Intent(requireContext(), CartActivity::class.java)
+                startActivity(intent)
+            }
+        }
+
+
+
     }
 
 }
+

@@ -1,5 +1,6 @@
 package com.project.pawsitivevibes.adapter
 
+import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
@@ -15,7 +16,7 @@ import com.project.pawsitivevibes.model.Item
 
 class ItemAdapter(
     private val products: MutableList<AllProduct>,
-    private val onAddToCartClick: (AllProduct) -> Unit
+    private val onAddToCartClick: (AllProduct, Int, Double) -> Unit // Updated to pass quantity and price
 ) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
 
     class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -34,32 +35,35 @@ class ItemAdapter(
     }
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-        val product = products[position]
+        val product = products[position] // AllProduct object
 
         Glide.with(holder.itemView.context)
-            .load("http://10.0.2.2:8000/" + product.prodImage)
+            .load("http://10.0.2.2:8000/" + product.prodImage) // Assuming prodImage is a URL or path
             .placeholder(R.drawable.profile)
             .error(R.drawable.profile)
             .into(holder.itemImage)
 
-
         holder.title.text = product.prodName
         holder.description.text = product.prodDescription
         holder.itemPrice.text = "₱${product.prodPrice}"
-        holder.itemQuantity.text = "x${product.prodQuantity}"
 
+        // Handle the Add to Cart Button click
         holder.addToCartButton.setOnClickListener {
-            onAddToCartClick(product)
+            val quantity = holder.itemQuantity.text.toString().toIntOrNull() ?: 1 // Default to 1 if invalid
+            onAddToCartClick(product, quantity, product.prodPrice)
         }
     }
+
     fun updateData(newProducts: List<AllProduct>) {
-        products.clear() // This works now because products is a MutableList.
+        products.clear()
         products.addAll(newProducts)
         notifyDataSetChanged()
     }
 
-
     override fun getItemCount(): Int = products.size
 }
+
+
+
 
 
