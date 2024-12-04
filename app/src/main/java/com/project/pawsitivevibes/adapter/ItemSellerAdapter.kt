@@ -13,7 +13,8 @@ import com.project.pawsitivevibes.model.Item
 
 class ItemSellerAdapter(
     private val items: List<Item>,
-    private val onMoreOptionsClick: (Item) -> Unit
+    private val onMoreOptionsClick: (Item) -> Unit,
+    private val onDeleteClick: (Item) -> Unit
 ) : RecyclerView.Adapter<ItemSellerAdapter.ItemViewHolder>() {
 
     class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -22,6 +23,7 @@ class ItemSellerAdapter(
         val itemImage: ImageView = view.findViewById(R.id.productImage)
         val itemPrice: TextView = view.findViewById(R.id.productPrice)
         val itemQuantity: TextView = view.findViewById(R.id.productQuantity)
+        val removeButton: ImageButton = view.findViewById(R.id.removeButton)
         val moreOptionsButton: ImageButton = view.findViewById(R.id.moreOptionsButton)
     }
 
@@ -47,6 +49,9 @@ class ItemSellerAdapter(
             .into(holder.itemImage)
 
         // Handle moreOptionsButton click
+        holder.removeButton.setOnClickListener {
+            onDeleteClick(item) // Handle delete button click
+        }
         holder.moreOptionsButton.setOnClickListener { onMoreOptionsClick(item) }
     }
 

@@ -14,6 +14,7 @@ import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.Response
 import retrofit2.http.Body
+import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.Headers
@@ -73,8 +74,11 @@ interface ApiService {
         @Path("id") productId: Int,
         @Body updatedProduct: UpdateProductRequest
     ): Response<Product>
-
-
+    @DELETE("api/products/delete-product/{id}")
+    suspend fun deleteProduct(
+        @Header("Authorization") authToken: String,
+        @Path("id") productId: Int
+    ): Response<Unit>
 
     companion object {
         fun create(): ApiService {

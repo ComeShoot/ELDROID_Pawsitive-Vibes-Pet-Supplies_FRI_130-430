@@ -22,4 +22,12 @@ class ItemRepository(private val apiService: ApiService) {
             throw Exception("Failed to update product: $errorMessage")
         }
     }
+    suspend fun deleteProduct(authToken: String, productId: Int) {
+        val response = apiService.deleteProduct(authToken, productId)
+        if (!response.isSuccessful) {
+            val errorMessage = response.errorBody()?.string() ?: "Unknown error"
+            throw Exception("Failed to delete product: $errorMessage")
+        }
+    }
+
 }

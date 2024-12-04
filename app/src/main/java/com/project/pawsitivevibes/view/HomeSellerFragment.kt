@@ -1,5 +1,6 @@
 package com.project.pawsitivevibes.view
 
+import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -66,26 +67,37 @@ class HomeSellerFragment : Fragment() {
         viewModel.products.observe(viewLifecycleOwner) { products ->
             val adapter = ItemSellerAdapter(products.map {
                 Item(
-                    id = it.seller_id,
+                    id = it.prod_id,
                     name = it.prod_name,
                     description = it.prod_description,
                     imageUrl = it.prod_image,
                     price = it.prod_price,
                     quantity = it.prod_quantity
                 )
-            }) { selectedItem ->
-                // Navigate to EditProductActivity with the selected item
-                val intent = Intent(requireActivity(), EditProductActivity::class.java)
-                intent.putExtra("product_id", selectedItem.id)
-                intent.putExtra("product_name", selectedItem.name)
-                intent.putExtra("product_description", selectedItem.description)
-                intent.putExtra("product_price", selectedItem.price)
-                intent.putExtra("product_quantity", selectedItem.quantity)
-                intent.putExtra("product_image", selectedItem.imageUrl)
-                startActivity(intent)
-            }
+            },
+                onMoreOptionsClick = { selectedItem ->
+                    val intent = Intent(requireActivity(), EditProductActivity::class.java)
+                    intent.putExtra("product_id", selectedItem.id)
+                    intent.putExtra("product_name", selectedItem.name)
+                    intent.putExtra("product_description", selectedItem.description)
+                    intent.putExtra("product_price", selectedItem.price)
+                    intent.putExtra("product_quantity", selectedItem.quantity)
+                    intent.putExtra("product_image", selectedItem.imageUrl)
+                    startActivity(intent)
+                },
+                onDeleteClick = { selectedItem ->
+                    AlertDialog.Builder(requireContext())
+                        .setTitle("Confirm Delete")
+                        .setMessage("Are you sure you want to delete ${selectedItem.name}?")
+                        .setPositiveButton("Yes") { _, _ ->
+                            viewModel.deleteProduct(selectedItem.id)
+                        }
+                        .setNegativeButton("No", null)
+                        .show()
+                })
             recyclerView.adapter = adapter
         }
+
 
 
         // Observe errors
