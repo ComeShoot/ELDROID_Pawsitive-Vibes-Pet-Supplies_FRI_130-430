@@ -94,8 +94,8 @@ interface ApiService {
     @POST("api/cart/add-to-cart")
     suspend fun addToCart(@Body request: AddToCartRequest): Response<CartItemResponse>
 
-    @GET("api/cart/get-cart-items/")
-    suspend fun getCartItems(@Query("cust_id") custId: Int): Response<CartItemsResponse>
+    @POST("api/cart/get-cart-items")
+    suspend fun getCartItems(@Body request: CartItemsRequest): Response<CartItemsResponse>
 
 
     companion object {

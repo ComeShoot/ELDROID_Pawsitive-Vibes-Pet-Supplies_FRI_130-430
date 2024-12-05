@@ -43,7 +43,7 @@ class HomeFragment : Fragment() {
                 adapter.updateData(products) // Passing a list of AllProduct
             }
         }
-
+//
         // Handle add to cart status
         viewModel.addToCartStatus.observe(viewLifecycleOwner) { status ->
             if (status) {
